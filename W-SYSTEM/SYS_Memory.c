@@ -5,7 +5,7 @@ void SYS_MemoryHEAPCall (u32 size,u8 ID, HeapList* heaplist)
 {
 	void* TEMP;
 	TEMP=heaplist->PNextHapeList;
-	heaplist->PNextHapeList=malloc (size);//内存申请标记
+	heaplist->PNextHapeList=malloc (size);//脛脷麓忙脡锚脟毛卤锚录脟
 	
 	heaplist=heaplist->PNextHapeList;
 	
@@ -22,7 +22,7 @@ void SYS_MemoryHEAPCall (u32 size,u8 ID, HeapList* heaplist)
 }
 void SYS_MemoryInit ()
 {
-	_heaplist=malloc (SYS_MEMSIZE);//内存申请标记
+	_heaplist=malloc (SYS_MEMSIZE);//脛脷麓忙脡锚脟毛卤锚录脟
 	_heaplist->HeapID=SYS_MENID | 0x80;
 	_heaplist->Size=SYS_MEMSIZE-sizeof (HeapList);
 	_heaplist->PHeapNodeHead=(HeapNode*)((uint32_t)_heaplist+sizeof (HeapList));
@@ -40,51 +40,51 @@ u32 SYS_MemorySizeChoice(u32 size)
 	if (SYS_NEW_MEMSIZE<size) return SYS_NEW_MEMSIZE+SYS_MemorySizeChoice(size-SYS_NEW_MEMSIZE);
 	else return SYS_NEW_MEMSIZE;
 }
-void* SYS_CallMem (u32 size,uint8_t ID)//外部调用
+void* SYS_CallMem (u32 size,uint8_t ID)//脥芒虏驴碌梅脫脙
 {
-	HeapNode* PN;//当前节点
-	HeapList* PL;//当前堆
-	for (PL=_heaplist;PL->HeapID!=ID && PL->HeapID!=(ID | 0x80);PL=PL->PNextHapeList);//初始化为首堆
+	HeapNode* PN;//碌卤脟掳陆脷碌茫
+	HeapList* PL;//碌卤脟掳露脩
+	for (PL=_heaplist;PL->HeapID!=ID && PL->HeapID!=(ID | 0x80);PL=PL->PNextHapeList);//鲁玫脢录禄炉脦陋脢脳露脩
 	while (1)
 	{
-		for (PN=PL->PHeapNodeHead;PN->USEState==USED;PN=PN->PNextHeapNode)//指向第一个堆的第一个节点，这个节点被使用则进入下一个节点，没被使用就退出
+		for (PN=PL->PHeapNodeHead;PN->USEState==USED;PN=PN->PNextHeapNode)//脰赂脧貌碌脷脪禄赂枚露脩碌脛碌脷脪禄赂枚陆脷碌茫拢卢脮芒赂枚陆脷碌茫卤禄脢鹿脫脙脭貌陆酶脠毛脧脗脪禄赂枚陆脷碌茫拢卢脙禄卤禄脢鹿脫脙戮脥脥脣鲁枚
 		{
-			if (PN->PNextHeapNode);                                        //下一个节点指针不为空就继续
-			else                                                           //为空就换下一个堆并退出
+			if (PN->PNextHeapNode);                                        //脧脗脪禄赂枚陆脷碌茫脰赂脮毛虏禄脦陋驴脮戮脥录脤脨酶
+			else                                                           //脦陋驴脮戮脥禄禄脧脗脪禄赂枚露脩虏垄脥脣鲁枚
 			{
-				if (PL->PNextHapeList==NULL)                                       //如果下一个堆不存在就新建一个堆
+				if (PL->PNextHapeList==NULL)                                       //脠莽鹿没脧脗脪禄赂枚露脩虏禄麓忙脭脷戮脥脨脗陆篓脪禄赂枚露脩
 				{
 					SYS_MemoryHEAPCall (SYS_MemorySizeChoice(size),0,PL);
 				}
-				PL=PL->PNextHapeList;                                        //当前堆切换为新的堆
-				PN=PL->PHeapNodeHead;                                       //当前节点切换为新的堆的节点
+				PL=PL->PNextHapeList;                                        //碌卤脟掳露脩脟脨禄禄脦陋脨脗碌脛露脩
+				PN=PL->PHeapNodeHead;                                       //碌卤脟掳陆脷碌茫脟脨禄禄脦陋脨脗碌脛露脩碌脛陆脷碌茫
 			}
 		}
-		if (PN->Size<size+sizeof (HeapNode) )                            //判断大小不合格
+		if (PN->Size<size+sizeof (HeapNode) )                            //脜脨露脧麓贸脨隆虏禄潞脧赂帽
 		{
-			if (PN->PNextHeapNode==NULL)            //判断下一个节点不存在就切换下一个堆
+			if (PN->PNextHeapNode==NULL)            //脜脨露脧脧脗脪禄赂枚陆脷碌茫虏禄麓忙脭脷戮脥脟脨禄禄脧脗脪禄赂枚露脩
 			{
-				if (PL->PNextHapeList==NULL)        //如果下一个堆不存在就新建一个堆
+				if (PL->PNextHapeList==NULL)        //脠莽鹿没脧脗脪禄赂枚露脩虏禄麓忙脭脷戮脥脨脗陆篓脪禄赂枚露脩
 				{
 					SYS_MemoryHEAPCall (SYS_MemorySizeChoice(size),ID,PL);
 				}
-				PL=PL->PNextHapeList; //当前堆切换为新的堆
-				PN=PL->PHeapNodeHead;	//当前节点切换为新的堆的节点
+				PL=PL->PNextHapeList; //碌卤脟掳露脩脟脨禄禄脦陋脨脗碌脛露脩
+				PN=PL->PHeapNodeHead;	//碌卤脟掳陆脷碌茫脟脨禄禄脦陋脨脗碌脛露脩碌脛陆脷碌茫
 			}
-			else		                        	       //存在就换下一个节点
+			else		                        	       //麓忙脭脷戮脥禄禄脧脗脪禄赂枚陆脷碌茫
 			{
 				PN=PN->PNextHeapNode;
 			}
 		}
-		else break;                                                      //合格则退出
+		else break;                                                      //潞脧赂帽脭貌脥脣鲁枚
 	}
-	/*建立新节点*/
+	/*陆篓脕垄脨脗陆脷碌茫*/
 	((HeapNode*)((uint32_t)(PN->PBlock)+size))->USEState=NOTUSED;
 	((HeapNode*)((uint32_t)(PN->PBlock)+size))->Size=PN->Size-sizeof (HeapNode)-size;
 	((HeapNode*)((uint32_t)(PN->PBlock)+size))->PBlock=(void *)( (uint32_t) ((HeapNode*)((uint32_t)(PN->PBlock)+size))+sizeof (HeapNode) );
 	((HeapNode*)((uint32_t)(PN->PBlock)+size))->PFrontHeapNode=PN;
 	((HeapNode*)((uint32_t)(PN->PBlock)+size))->PNextHeapNode=NULL;
-	/*老节点设置*/
+	/*脌脧陆脷碌茫脡猫脰脙*/
 	PN->USEState=USED;
 	PN->Size=size;
 	PN->PNextHeapNode=((HeapNode*)((uint32_t)(PN->PBlock)+size));
@@ -126,18 +126,18 @@ void  SYS_FreeMem (void * Addr)
 	{
 		for (;TEMP->PFrontHeapNode;TEMP=TEMP->PFrontHeapNode);
 		HTEMP=(HeapList*)((uint32_t)TEMP-sizeof (HeapList));
-		if (HTEMP->HeapID & 0x80)//如果ID是首堆
+		if (HTEMP->HeapID & 0x80)//脠莽鹿没ID脢脟脢脳露脩
 		{
 			TEMP->PFrontHeapNode=NULL;
 			TEMP->PNextHeapNode=NULL;
 			TEMP->USEState=NOTUSED;
 			TEMP->Size=HTEMP->Size-sizeof (HeapNode);
 		}
-		else                       //如果ID不是首堆
+		else                       //脠莽鹿没ID虏禄脢脟脢脳露脩
 		{
 			for (FHTEMP=_heaplist;FHTEMP->PNextHapeList!=HTEMP && FHTEMP->PNextHapeList!=NULL;FHTEMP=FHTEMP->PNextHapeList);
 			FHTEMP->PNextHapeList=HTEMP->PNextHapeList;
-			free (HTEMP);  //释放标记
+			free (HTEMP);  //脢脥路脜卤锚录脟
 		}
 	}
 }

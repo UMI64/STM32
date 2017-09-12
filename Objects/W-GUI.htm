@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\W-GUI.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\W-GUI.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Sep 09 18:19:39 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Tue Sep 12 13:22:16 2017
 <BR><P>
 <H3>Maximum Stack Usage =        312 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1166,7 +1166,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[43]"></a>test</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, main.o(i.test))
+<P><STRONG><a name="[43]"></a>test</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, main.o(i.test))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = test &rArr; SYS_Init &rArr; SYS_DriverInit &rArr; SYS_AddtoDriverTree &rArr; AddToDriverTree &rArr; SYS_CallMem &rArr; SYS_MemoryHEAPCall &rArr; malloc &rArr; _malloc_internal &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; _free_internal &rArr; _mutex_acquire &rArr; osMutexAcquire &rArr; xQueueTakeMutexRecursive &rArr; xQueueGenericReceive &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init

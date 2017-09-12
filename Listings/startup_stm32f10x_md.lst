@@ -477,17 +477,17 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_md.d -o.\objects\startup_stm32f10x_md.
-o -I"C:\Users\94942\Documents\keil\32 W-GUI\RTE" -I"C:\Users\94942\Documents\ke
-il\32 W-GUI\RTE\Device\STM32F103C8" -I"C:\Users\94942\Documents\keil\32 W-GUI\R
-TE\RTOS" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\In
-clude -IC:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include -IC:\Keil_v
-5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3 -IC:\Keil_v5\A
-RM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMS
-IS\RTOS2\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include 
--IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc --pr
-edefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="_
-RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\startup_stm32f
-10x_md.lst RTE\Device\STM32F103C8\startup_stm32f10x_md.s
+o -IC:\Users\94942\Documents\GitHub\STM32\RTE -IC:\Users\94942\Documents\GitHub
+\STM32\RTE\Device\STM32F103C8 -IC:\Users\94942\Documents\GitHub\STM32\RTE\RTOS 
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include -IC
+:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include -IC:\Keil_v5\ARM\PAC
+K\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3 -IC:\Keil_v5\ARM\PACK\A
+RM\CMSIS\5.0.1\CMSIS\Include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\
+Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include -IC:\Keil
+_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc --predefine="
+__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="_RTE_ SETA
+ 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\startup_stm32f10x_md.ls
+t RTE\Device\STM32F103C8\startup_stm32f10x_md.s
 
 
 

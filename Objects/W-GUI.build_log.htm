@@ -21,8 +21,8 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.6.0_KEIL
 Dialog DLL:      TARMSTM.DLL V1.64.0.0
  
 <h2>Project:</h2>
-C:\Users\94942\Documents\keil\32 W-GUI\W-GUI.uvprojx
-Project File Date:  08/19/2017
+C:\Users\94942\Documents\GitHub\STM32\W-GUI.uvprojx
+Project File Date:  09/12/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.04 update 1 (build 49)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -30,12 +30,50 @@ Build target 'Target 1'
 compiling main.c...
 .\W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
   void SYS_Init();
-APP\main.c(35): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "TaskFunction_t"
+APP\main.c(32): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "TaskFunction_t"
         xTaskCreate(test,"test",50,NULL,1,NULL);
 APP\main.c: 2 warnings, 0 errors
+compiling tft_ili9341.c...
+.\W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
+  void SYS_Init();
+TFT_ILI9341\tft_ili9341.c: 1 warning, 0 errors
+compiling GUI_Core.c...
+.\W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
+  void SYS_Init();
+W-GUI\GUI_Core.c: 1 warning, 0 errors
+compiling SYS_Core.c...
+W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
+  void SYS_Init();
+W-SYSTEM\SYS_Core.c: 1 warning, 0 errors
+compiling SYS_Device.c...
+W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
+  void SYS_Init();
+W-SYSTEM\SYS_Device.c: 1 warning, 0 errors
+compiling SYS_Memory.c...
+W-SYSTEM\SYS_CORE.h(7): warning:  #1295-D: Deprecated declaration SYS_Init - give arg types
+  void SYS_Init();
+W-SYSTEM\SYS_Memory.c: 1 warning, 0 errors
+compiling clib_arm.c...
+compiling cmsis_os2.c...
+compiling misc.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_spi.c...
+assembling startup_stm32f10x_md.s...
+compiling system_stm32f10x.c...
+compiling freertos_evr.c...
+compiling event_groups.c...
+compiling list.c...
+compiling heap_5.c...
+compiling port.c...
+compiling queue.c...
+compiling tasks.c...
+compiling timers.c...
+compiling FreeRTOS_Tick_Config.c...
 linking...
-Program Size: Code=12424 RO-data=308 RW-data=168 ZI-data=16888  
-".\Objects\W-GUI.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=12408 RO-data=308 RW-data=168 ZI-data=16888  
+".\Objects\W-GUI.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,37 +86,37 @@ Package Vendor: ARM
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS-FreeRTOS.9.0.0.pack
-                ARM.FreeRTOS::RTOS:Event Groups:9.0.0
+                ARM.FreeRTOS::RTOS:Timers:9.0.0
                 Bundle of FreeRTOS for Cortex-M and Cortex-A
-   * Component: Event Groups Version: 9.0.0
    * Component: Timers Version: 9.0.0
-   * Component: Heap Variant: Heap_5 Version: 9.0.0
    * Component: FreeRTOS Version: 9.0.0
+   * Component: Event Groups Version: 9.0.0
    * Component: Core Version: 9.0.0
    * Component: Config Variant: CMSIS RTOS2 Version: 9.0.0
+   * Component: Heap Variant: Heap_5 Version: 9.0.0
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.1.0.pack
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
                 Keil::Device:Startup:1.0.0
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
    * Component: Startup Version: 1.0.0
-   * Component: DMA Version: 3.5.0
    * Component: Framework Version: 3.5.1
+   * Component: DMA Version: 3.5.0
    * Component: GPIO Version: 3.5.0
    * Component: SPI Version: 3.5.0
    * Component: RCC Version: 3.5.0
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\94942\Documents\keil\32 W-GUI\RTE
-  C:\Users\94942\Documents\keil\32 W-GUI\RTE\Device\STM32F103C8
-  C:\Users\94942\Documents\keil\32 W-GUI\RTE\RTOS
+  C:\Users\94942\Documents\GitHub\STM32\RTE
+  C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103C8
+  C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS
   C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include
   C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include
   C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include
-  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
-  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc
 
 <h2>Collection of Component Files used:</h2>
 
@@ -87,66 +125,66 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.0.1
 
-   * Component: ARM.FreeRTOS::RTOS:Event Groups:9.0.0
-      Source file:   Source\event_groups.c
-      Include file:  Source\include\event_groups.h
-
    * Component: ARM.FreeRTOS::RTOS:Timers:9.0.0
       Include file:  Source\include\timers.h
       Source file:   Source\timers.c
 
-   * Component: ARM.FreeRTOS::RTOS:Heap:Heap_5:9.0.0
-      Source file:   Source\portable\MemMang\heap_5.c
-
    * Component: ARM::CMSIS:RTOS2:FreeRTOS:9.0.0
-      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
+
+   * Component: ARM.FreeRTOS::RTOS:Event Groups:9.0.0
+      Include file:  Source\include\event_groups.h
+      Source file:   Source\event_groups.c
 
    * Component: ARM.FreeRTOS::RTOS:Core:9.0.0
-      Include file:  Source\include\FreeRTOS.h
-      Include file:  Source\include\queue.h
-      Include file:  Source\include\semphr.h
-      Source file:   Source\portable\RVDS\ARM_CM3\port.c
       Source file:   Source\list.c
       Source file:   Source\tasks.c
+      Include file:  Source\include\semphr.h
+      Include file:  Source\include\FreeRTOS.h
+      Include file:  Source\include\queue.h
       Include file:  Source\include\task.h
       Source file:   Source\queue.c
+      Source file:   Source\portable\RVDS\ARM_CM3\port.c
       Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
 
    * Component: ARM.FreeRTOS::RTOS:Config:CMSIS RTOS2:9.0.0
-      Source file:   CMSIS\RTOS2\FreeRTOS\Config\FreeRTOS_Tick_Config.c
       Include file:  CMSIS\RTOS2\FreeRTOS\Config\ARMCM\FreeRTOSConfig.h
+      Source file:   CMSIS\RTOS2\FreeRTOS\Config\FreeRTOS_Tick_Config.c
       Include file:  CMSIS\RTOS2\FreeRTOS\Config\FreeRTOS_Tick_Config.h
 
-   * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+   * Component: ARM.FreeRTOS::RTOS:Heap:Heap_5:9.0.0
+      Source file:   Source\portable\MemMang\heap_5.c
 
-   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
       Source file:   Device\StdPeriph_Driver\src\misc.c
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
 
    * Component: Keil::Device:StdPeriph Drivers:SPI:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
 </pre>
 </body>
 </html>
