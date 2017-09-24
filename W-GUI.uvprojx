@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\TFT_ILI9341;.\W-GUI;.\W-SYSTEM</IncludePath>
+              <IncludePath>.\TFT_ILI9341;.\W-GUI;.\W-SYSTEM;.\MPU6050;.\APP\stable</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -416,6 +416,11 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>stable.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\stable\stable.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -491,6 +496,16 @@
               <FileName>SYS_Memory.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\W-SYSTEM\SYS_Memory.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MPU6050 Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MPU6050\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -579,6 +594,12 @@
       </component>
       <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO" Cvendor="Keil" Cversion="3.5.0" condition="STM32F1xx STDPERIPH RCC">
         <package name="STM32F1xx_DFP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="2.1.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="I2C" Cvendor="Keil" Cversion="3.5.0" condition="STM32F1xx STDPERIPH RCC">
+        <package name="STM32F1xx_DFP" schemaVersion="1.4.0" url="http://www.keil.com/pack/" vendor="Keil" version="2.2.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>

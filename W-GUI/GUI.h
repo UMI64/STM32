@@ -2,6 +2,9 @@
 #define __GUI_H
 #include "SYS.h"
 #include "GUI_Core.h"
+#include <stm32f10x.h>
+#include <FreeRTOS.h>
+#include <task.h>
 /*Ó²¼þ»æÍ¼º¯Êý*/
 typedef struct HardDrawfunction
 {

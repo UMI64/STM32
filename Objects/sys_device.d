@@ -13,6 +13,7 @@
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_dma.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_spi.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
@@ -37,3 +38,5 @@
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h
 .\objects\sys_device.o: .\TFT_ILI9341\tft_ili9341.h
+.\objects\sys_device.o: .\MPU6050\mpu6050.h
+.\objects\sys_device.o: .\MPU6050\mpu6050.h

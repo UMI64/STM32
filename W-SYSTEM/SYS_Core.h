@@ -4,7 +4,7 @@
 #include "SYS.h"
 #include "SYS_CORE.h"
 
-void SYS_Init();
+void SYS_Init(void);
 
 #endif
 

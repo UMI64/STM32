@@ -254,6 +254,10 @@ TFT_ILI9341_WriteCmd(0x29);    //开显示
 
 		Screen_Clear(0,0,WIDTH-1,LENGTH-1,TESTCOLOR);
 }
+
+
+
+/*系统接口函数*/
 /*驱动加载函数和硬件测试函数*/
 TESTPASS TFT_ILI9341_TEST()
 {

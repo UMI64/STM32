@@ -25,5 +25,9 @@ void GUI_Init ()
 {
 	SYS_CallHEAP (GUI_MEMSIZE,GUI_MENID);
 	GUI_LoadFunction ();
-	PHardDrawFUN->DrawRange (3,3,7,7,0xffff);
+	xTaskCreate(GUI,"test",50,NULL,1,NULL);
+}
+void GUI ()
+{
+	
 }

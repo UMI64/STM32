@@ -13,6 +13,7 @@
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_dma.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_spi.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
@@ -24,3 +25,16 @@
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\gui_core.o: W-GUI\GUI_Core.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gui_core.o: C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h
+.\objects\gui_core.o: C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOS_Tick_Config.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\projdefs.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\portable.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\deprecated_definitions.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\portmacro.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h
+.\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h

@@ -1,6 +1,7 @@
 #include "SYS_Device.h"
 /*Driver*/
 #include "tft_ili9341.h"
+#include "mpu6050.h"
 
 DriverTreeData* PDriverTree=NULL;
 DriverTreeData* PDriverPassTree=NULL;
@@ -24,6 +25,7 @@ void SYS_AddtoDriverTree()
 {
 	/*加入驱动加载函数*/
 	TFT_ILI9341_LoadInfo (AddToDriverTree());
+	MPU_6050_LoadInfo (AddToDriverTree());
 }
 void SYS_AddtoDriverPassTree()
 {

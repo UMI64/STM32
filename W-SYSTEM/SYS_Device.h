@@ -33,6 +33,17 @@ typedef struct
 	void (* DrawRange)(u16 x1,u16 y1,u16 x2,u16 y2,u16 Color);
 	void (* ReadColor)(u16 x,u16 y,uint16_t *Color);
 } LCDData;
+/*角加速度，加速度信息结构体*/
+typedef struct
+{
+	u16 (* Get_X_Angular_Acceleration)();
+	u16 (* Get_Y_Angular_Acceleration)();
+	u16 (* Get_Z_Angular_Acceleration)();
+	u16 (* Get_X_Acceleration)();
+	u16 (* Get_Y_Acceleration)();
+	u16 (* Get_Z_Acceleration)();
+} GyroscopeData;
+	
 /*通过测试的驱动列表*/
 extern DriverTreeData* PDriverPassTree;//外部调用，通过测试的驱动列表
 

@@ -3,9 +3,11 @@
 #include <task.h>
 #include "SYS.h"
 #include "GUI.h"
+#include <stable.h>
 
 void test ()
 {
+	void * a;
 	void * b;
 	void * c;
 	void * d;
@@ -15,11 +17,14 @@ void test ()
 	{
 		SYS_Init();
 		GUI_Init ();
+		Stable_Init ();
+		a=SYS_CallMem (200,SYS_MENID);
 		b=SYS_CallMem (200,SYS_MENID);
 		c=SYS_CallMem (200,SYS_MENID);
 		d=SYS_CallMem (200,SYS_MENID);
 		e=SYS_CallMem (1000,SYS_MENID);
 		f=SYS_CallMem (800,SYS_MENID);
+		SYS_FreeMem (a);
 		SYS_FreeMem (d);
 		SYS_FreeMem (b);
 		SYS_FreeMem (c);
