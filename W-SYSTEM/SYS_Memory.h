@@ -5,7 +5,7 @@
 
 #define SYS_MEMSIZE (uint32_t) 2048
 #define SYS_MENID 1
-#define GUI_MEMSIZE (uint32_t) 2048
+#define GUI_MEMSIZE (uint32_t) 1024
 #define GUI_MENID 2
 
 #define SYS_NEW_MEMSIZE (uint32_t) 1024

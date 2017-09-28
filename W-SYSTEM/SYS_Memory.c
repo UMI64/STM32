@@ -1,11 +1,12 @@
 #include "SYS_Memory.h"
+#include "FreeRTOS.h"
 
 HeapList* _heaplist;
 void SYS_MemoryHEAPCall (u32 size,u8 ID, HeapList* heaplist)
 {
 	void* TEMP;
 	TEMP=heaplist->PNextHapeList;
-	heaplist->PNextHapeList=malloc (size);//内存申请标记
+	heaplist->PNextHapeList=pvPortMalloc (size);//内存申请标记
 	
 	heaplist=heaplist->PNextHapeList;
 	
@@ -22,7 +23,7 @@ void SYS_MemoryHEAPCall (u32 size,u8 ID, HeapList* heaplist)
 }
 void SYS_MemoryInit ()
 {
-	_heaplist=malloc (SYS_MEMSIZE);//内存申请标记
+	_heaplist=pvPortMalloc (SYS_MEMSIZE);//内存申请标记
 	_heaplist->HeapID=SYS_MENID | 0x80;
 	_heaplist->Size=SYS_MEMSIZE-sizeof (HeapList);
 	_heaplist->PHeapNodeHead=(HeapNode*)((uint32_t)_heaplist+sizeof (HeapList));

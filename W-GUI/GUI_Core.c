@@ -29,5 +29,8 @@ void GUI_Init ()
 }
 void GUI ()
 {
-	
+	while (1)
+	{
+		PHardDrawFUN->DrawRange (20,20,60,60,0x6789);
+	}
 }

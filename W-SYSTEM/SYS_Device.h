@@ -12,6 +12,7 @@ typedef enum
 typedef struct DriverInfoData
 {
 	uint16_t DriverID;
+	void (* Init)();
 	TESTPASS (* Test)();
 	void* PInfo;
 } DriverInfoData;

@@ -262,7 +262,6 @@ TFT_ILI9341_WriteCmd(0x29);    //开显示
 TESTPASS TFT_ILI9341_TEST()
 {
 	uint16_t testcolor=0xffff;
-	TFT_ILI9341_Init ();
 	Screen_ReadColor (10,10,&testcolor);
 	if (testcolor==TESTCOLOR) return PASS;
 	else return NOTPASS;
@@ -272,6 +271,7 @@ void TFT_ILI9341_LoadInfo (DriverInfoData* PDriverInfo)
 	LCDdata.DrawPoint=Screen_DrawPoint;
 	LCDdata.DrawRange=Screen_Clear;
 	LCDdata.ReadColor=Screen_ReadColor;
+	PDriverInfo->Init=TFT_ILI9341_Init;
 	PDriverInfo->Test=TFT_ILI9341_TEST;
 	PDriverInfo->PInfo=&LCDdata;
 	PDriverInfo->DriverID=22;
@@ -279,29 +279,34 @@ void TFT_ILI9341_LoadInfo (DriverInfoData* PDriverInfo)
 /*基本绘图函数*/
 void Screen_Clear     (u16 x1,u16 y1,u16 x2,u16 y2,u16 Color)
 {
-	unsigned int i,j;  	
+	unsigned int i,j;
+	vTaskSuspendAll ();
 	TFT_ILI9341_Address_set(x1,y1,x2,y2);
 	TFT_ILI9341_WriteCmd(0x2C);//w
 	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_16b);
 	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
 	for(i=y1;i<=y2;i++)
-	 {
-	  for (j=x1;j<=x2;j++)
-	   	{
-				while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));
+	{
+		for (j=x1;j<=x2;j++)
+		{
+			while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));
 				SPI1->DR =Color;			 
-	    }
-	  }
+		}
+	}
+	xTaskResumeAll ();
 }
 void Screen_DrawPoint(u16 x,u16 y,u16 POINT_COLOR)
 {
+	vTaskSuspendAll ();
 	TFT_ILI9341_Address_set(x,y,x,y);//设置光标位置
 	TFT_ILI9341_WriteCmd(0x2C);//w
 	TFT_ILI9341_WriteData_16bit (POINT_COLOR);
+	xTaskResumeAll ();
 }
 void Screen_ReadColor (u16 x,u16 y,uint16_t *Color)
 {
 	uint16_t r,g,b,trans_1,trans_2;
+	vTaskSuspendAll ();
 	TFT_ILI9341_Address_set(x,y,x,y);
 	TFT_ILI9341_WriteCmd (0x2e);//r
 	TFT_ILI9341_ReadData_16bit (&trans_1);
@@ -314,4 +319,5 @@ void Screen_ReadColor (u16 x,u16 y,uint16_t *Color)
 	g=(trans_2>>5) & 0x07e0;
 	b=(trans_2>>3) & 0x001f;
 	*Color= r | g | b;
+	xTaskResumeAll ();
 }

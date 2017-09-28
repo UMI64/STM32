@@ -23,3 +23,14 @@
 .\objects\sys_memory.o: W-SYSTEM\SYS_Device.h
 .\objects\sys_memory.o: W-SYSTEM\SYS_Device.h
 .\objects\sys_memory.o: W-SYSTEM\SYS_Memory.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\sys_memory.o: C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h
+.\objects\sys_memory.o: C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOS_Tick_Config.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\projdefs.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\portable.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\deprecated_definitions.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\portmacro.h
+.\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h
