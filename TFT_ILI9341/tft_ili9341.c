@@ -1,4 +1,5 @@
 #include "tft_ili9341.h"
+#include <stdlib.h> 
 static LCDData LCDdata;
 void SPI1_Init ()
 {
@@ -49,7 +50,7 @@ void DMA_TX_Init (u32 DataNum,u32 SENDBUFF)
 void SPI_BaudRatePrescaler_datasize(u16 BaudRatePrescaler,u16 datasize)
 {
 	u16 temp;
-	while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));
+	while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));//可能会在这里卡死
 	temp=BaudRatePrescaler | datasize;
 	SPI1->CR1 &=0Xf7c7;
 	SPI1->CR1 |=temp;
@@ -251,8 +252,8 @@ TFT_ILI9341_WriteCmd(0x11);    //退出睡眠
     vTaskDelay(120);           //延时120ms
 			
 TFT_ILI9341_WriteCmd(0x29);    //开显示
-
-		Screen_Clear(0,0,WIDTH-1,LENGTH-1,TESTCOLOR);
+	
+		Screen_Clear(0,0,WIDTH-1,LENGTH-1,0xffff);
 }
 
 
@@ -261,8 +262,19 @@ TFT_ILI9341_WriteCmd(0x29);    //开显示
 /*驱动加载函数和硬件测试函数*/
 TESTPASS TFT_ILI9341_TEST()
 {
-	uint16_t testcolor=0xffff;
+	uint16_t TESTCOLOR,testcolor,tempcolor;
+	static uint8_t x=0;
+	vTaskSuspendAll ();
+	
+	if (x) x=0;
+	else x=1;
+	TESTCOLOR=x | 0xfcfc;
+	
+	xTaskResumeAll ();
+	Screen_ReadColor (10,10,&tempcolor);
+	Screen_DrawPoint(10,10,TESTCOLOR);
 	Screen_ReadColor (10,10,&testcolor);
+	Screen_DrawPoint(10,10,tempcolor);
 	if (testcolor==TESTCOLOR) return PASS;
 	else return NOTPASS;
 }
@@ -305,7 +317,7 @@ void Screen_DrawPoint(u16 x,u16 y,u16 POINT_COLOR)
 }
 void Screen_ReadColor (u16 x,u16 y,uint16_t *Color)
 {
-	uint16_t r,g,b,trans_1,trans_2;
+	uint16_t r=0,g=0,b=0,trans_1=0,trans_2=0;
 	vTaskSuspendAll ();
 	TFT_ILI9341_Address_set(x,y,x,y);
 	TFT_ILI9341_WriteCmd (0x2e);//r

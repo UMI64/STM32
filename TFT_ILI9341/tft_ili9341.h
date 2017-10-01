@@ -9,7 +9,6 @@
 #define ID 0x0000
 #define WIDTH (u16)240
 #define LENGTH (u16)320
-#define TESTCOLOR (u16)0xfcfc
 #define COLOR_TYPE (u8)16
 /*系统调用函数*/
 void TFT_ILI9341_LoadInfo (DriverInfoData* PDriverInfo);

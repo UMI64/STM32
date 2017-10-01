@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\W-GUI.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\W-GUI.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Thu Sep 28 20:25:47 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Sep 30 22:08:46 2017
 <BR><P>
 <H3>Maximum Stack Usage =        256 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -842,13 +842,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[95]"></a>SYS_DeleteDriverfromPDriverPassTree</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, sys_device.o(i.SYS_DeleteDriverfromPDriverPassTree))
-<BR><BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_DriverManage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriver
+<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriver
 </UL>
 
 <P><STRONG><a name="[97]"></a>SYS_DeleteDriverfromPDriverTree</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, sys_device.o(i.SYS_DeleteDriverfromPDriverTree))
-<BR><BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_DriverManage
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriverPASS
+<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriverPASS
 </UL>
 
 <P><STRONG><a name="[9e]"></a>SYS_DriverInit</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, sys_device.o(i.SYS_DriverInit))
@@ -862,12 +860,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
 </UL>
 
-<P><STRONG><a name="[48]"></a>SYS_DriverManage</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, sys_device.o(i.SYS_DriverManage))
+<P><STRONG><a name="[48]"></a>SYS_DriverManage</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, sys_device.o(i.SYS_DriverManage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SYS_DriverManage &rArr; SYS_ADDtoDriverPASS
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_DeleteDriverfromPDriverTree
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_DeleteDriverfromPDriverPassTree
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriverPASS
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriverPASS
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_ADDtoDriver
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sys_device.o(i.SYS_DriverInit)
@@ -940,9 +936,11 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_ILI9341_WriteCmd
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_ILI9341_Address_set
 </UL>
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_ILI9341_TEST
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> tft_ili9341.o(i.TFT_ILI9341_LoadInfo)
 </UL>
-<P><STRONG><a name="[4c]"></a>Screen_ReadColor</STRONG> (Thumb, 110 bytes, Stack size 40 bytes, tft_ili9341.o(i.Screen_ReadColor))
+<P><STRONG><a name="[4c]"></a>Screen_ReadColor</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, tft_ili9341.o(i.Screen_ReadColor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Screen_ReadColor &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
@@ -1027,10 +1025,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_ReadColor
 </UL>
 
-<P><STRONG><a name="[4e]"></a>TFT_ILI9341_TEST</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, tft_ili9341.o(i.TFT_ILI9341_TEST))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = TFT_ILI9341_TEST &rArr; Screen_ReadColor &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[4e]"></a>TFT_ILI9341_TEST</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, tft_ili9341.o(i.TFT_ILI9341_TEST))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = TFT_ILI9341_TEST &rArr; Screen_ReadColor &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_ReadColor
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_ReadColor
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_DrawPoint
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tft_ili9341.o(i.TFT_ILI9341_LoadInfo)
 </UL>
@@ -1414,6 +1415,7 @@ Global Symbols
 <P><STRONG><a name="[a1]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
 <BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_ILI9341_TEST
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_ReadColor
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_DrawPoint
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_Clear
@@ -1662,6 +1664,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_ILI9341_TEST
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_ReadColor
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_DrawPoint
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Screen_Clear

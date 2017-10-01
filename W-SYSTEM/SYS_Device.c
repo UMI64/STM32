@@ -119,7 +119,6 @@ void SYS_DriverManage ()
 				if (_PDriverPassTree->DriverInfo.Test ()==NOTPASS)//如果还是没成功就从已加载驱动列表中删掉
 				{
 					SYS_ADDtoDriver (_PDriverPassTree);
-					SYS_DeleteDriverfromPDriverPassTree (_PDriverPassTree);
 				}
 			}
 		}
@@ -131,7 +130,6 @@ void SYS_DriverManage ()
 				if (_PDriverTree->DriverInfo.Test ()==PASS)
 				{
 					SYS_ADDtoDriverPASS (_PDriverTree);
-					SYS_DeleteDriverfromPDriverTree (_PDriverTree);
 				}
 			}
 		}
