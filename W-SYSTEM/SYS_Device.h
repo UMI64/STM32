@@ -44,7 +44,11 @@ typedef struct
 	u16 (* Get_Y_Acceleration)();
 	u16 (* Get_Z_Acceleration)();
 } GyroscopeData;
-	
+/**/
+typedef struct
+{
+	void (* TurnPower)();
+} BrushlessMotorData;
 /*通过测试的驱动列表*/
 extern DriverTreeData* PDriverPassTree;//外部调用，通过测试的驱动列表
 

@@ -1,10 +1,12 @@
 #include "stable.h"
 GyroscopeData* GetGyroscopeData;
+BrushlessMotorData* BrushlessMotordata;
 void Stable_LoadFunction ()
 {
 	DriverTreeData* PTEMP;
 	GyroscopeData* PGyroscopeData;
-	for (PTEMP=PDriverPassTree;PTEMP->DriverInfo.DriverID!=50 && PTEMP->PNext!=NULL;PTEMP=PTEMP->PNext);//寻找已加载的显示驱动
+	BrushlessMotorData* PBrushlessMotordata;
+	for (PTEMP=PDriverPassTree;PTEMP->DriverInfo.DriverID!=50 && PTEMP->PNext!=NULL;PTEMP=PTEMP->PNext);//寻找已加载驱动
 	if (PTEMP->DriverInfo.DriverID==50)//如果有符合的驱动就把函数链接起来
 	{/*驱动正确*/
 		GetGyroscopeData=SYS_CallMem (sizeof (GyroscopeData),STABLE_MENID);
@@ -20,10 +22,26 @@ void Stable_LoadFunction ()
 	{/*驱动错误*/
 		
 	}
+	for (PTEMP=PDriverPassTree;PTEMP->DriverInfo.DriverID!=51 && PTEMP->PNext!=NULL;PTEMP=PTEMP->PNext);//寻找已加载驱动
+	if (PTEMP->DriverInfo.DriverID==51)//如果有符合的驱动就把函数链接起来
+	{/*驱动正确*/
+		BrushlessMotordata=SYS_CallMem (sizeof (BrushlessMotorData),STABLE_MENID);
+		PBrushlessMotordata=PTEMP->DriverInfo.PInfo;
+		BrushlessMotordata->TurnPower=PBrushlessMotordata->TurnPower;
+	}
+	else
+	{/*驱动错误*/
+		
+	}
 }
 void stable ()
 {
-	while (1);
+	while (1)
+	{
+		GetGyroscopeData->Get_X_Angular_Acceleration ();
+		BrushlessMotordata->TurnPower ();
+		vTaskDelay (10);
+	}
 }
 void Stable_Init ()
 {

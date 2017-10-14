@@ -2,9 +2,9 @@
 /*Driver*/
 #include "tft_ili9341.h"
 #include "mpu6050.h"
+#include "BrushlessMotor.h"
 
-DriverTreeData* PDriverTree=NULL;
-DriverTreeData* PDriverPassTree=NULL;
+DriverTreeData* PDriverTree=NULL, * PDriverPassTree=NULL;
 //DriverInfoData
 DriverInfoData* AddToDriverTree()
 {
@@ -27,9 +27,10 @@ DriverInfoData* AddToDriverTree()
 }
 void SYS_AddtoDriverTree()
 {
-	/*加入驱动加载函数*/
+	/*加入驱动加载函数***************************************/
 	TFT_ILI9341_LoadInfo (AddToDriverTree());
 	MPU_6050_LoadInfo (AddToDriverTree());
+	BrushlessMotor_LoadInfo (AddToDriverTree());
 }
 void SYS_DeleteDriverfromPDriverPassTree (DriverTreeData * P)
 {
@@ -133,13 +134,14 @@ void SYS_DriverManage ()
 				}
 			}
 		}
+		vTaskDelay (500);
 	}
 }
 void SYS_DriverInit()
 {
 	SYS_AddtoDriverTree();
 	SYS_AddtoDriverPassTree();
-	xTaskCreate(SYS_DriverManage,"Manage",50,NULL,1,NULL);
+	xTaskCreate(SYS_DriverManage,"Manage",40,NULL,1,NULL);
 }
 
 
