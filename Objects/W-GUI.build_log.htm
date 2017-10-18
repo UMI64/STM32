@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.14.2.1
 Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Cortex-M3, YUMI STUDIO, LIC=----
+License Information: Cortex-M3, YUMI STUDIO, LIC=X1EY8-3MX20-XBJEC-7HIYY-E6BJN-B7QA5
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.11.0.0
+Toolchain:       MDK-ARM Professional  Version: 5.11.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.04 update 1 (build 49)
 Assembler:       Armasm.exe V5.04 update 1 (build 49)
@@ -22,18 +22,15 @@ Dialog DLL:      TARMSTM.DLL V1.64.0.0
  
 <h2>Project:</h2>
 C:\Users\94942\Documents\GitHub\STM32\W-GUI.uvprojx
-Project File Date:  10/10/2017
+Project File Date:  10/18/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.04 update 1 (build 49)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling stable.c...
-APP\stable\stable.c(50): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "TaskFunction_t"
-        xTaskCreate(stable,"test",50,NULL,1,NULL);
-APP\stable\stable.c: 1 warning, 0 errors
+compiling BrushlessMotor.c...
 linking...
-Program Size: Code=16536 RO-data=308 RW-data=3100 ZI-data=15588  
-".\Objects\W-GUI.axf" - 0 Error(s), 1 Warning(s).
+Program Size: Code=16344 RO-data=308 RW-data=3100 ZI-data=15612  
+".\Objects\W-GUI.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,23 +47,23 @@ Package Vendor: ARM
                 Bundle of FreeRTOS for Cortex-M and Cortex-A
    * Component: Timers Version: 9.0.0
    * Component: FreeRTOS Version: 9.0.0
-   * Component: Core Version: 9.0.0
    * Component: Config Variant: CMSIS RTOS2 Version: 9.0.0
+   * Component: Core Version: 9.0.0
    * Component: Event Groups Version: 9.0.0
    * Component: Heap Variant: Heap_5 Version: 9.0.0
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
-                Keil::Device:StdPeriph Drivers:SPI:3.5.0
+                Keil::Device:StdPeriph Drivers:DMA:3.5.0
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
-   * Component: SPI Version: 3.5.0
-   * Component: TIM Version: 3.5.0
-   * Component: I2C Version: 3.5.0
-   * Component: RCC Version: 3.5.0
-   * Component: Framework Version: 3.5.1
+   * Component: DMA Version: 3.5.0
    * Component: Startup Version: 1.0.0
    * Component: GPIO Version: 3.5.0
-   * Component: DMA Version: 3.5.0
+   * Component: Framework Version: 3.5.1
+   * Component: SPI Version: 3.5.0
+   * Component: TIM Version: 3.5.0
+   * Component: RCC Version: 3.5.0
+   * Component: I2C Version: 3.5.0
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\94942\Documents\GitHub\STM32\RTE
@@ -95,22 +92,22 @@ Package Vendor: Keil
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\cmsis_os2.c
       Source file:   CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c
 
-   * Component: ARM.FreeRTOS::RTOS:Core:9.0.0
-      Source file:   Source\queue.c
-      Source file:   Source\tasks.c
-      Include file:  Source\include\semphr.h
-      Source file:   Source\portable\RVDS\ARM_CM3\port.c
-      Include file:  Source\include\task.h
-      Include file:  Source\include\FreeRTOS.h
-      Include file:  Source\include\queue.h
-      Source file:   Source\list.c
-      Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
-      Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h
-
    * Component: ARM.FreeRTOS::RTOS:Config:CMSIS RTOS2:9.0.0
       Include file:  CMSIS\RTOS2\FreeRTOS\Config\FreeRTOS_Tick_Config.h
       Source file:   CMSIS\RTOS2\FreeRTOS\Config\FreeRTOS_Tick_Config.c
       Include file:  CMSIS\RTOS2\FreeRTOS\Config\ARMCM\FreeRTOSConfig.h
+
+   * Component: ARM.FreeRTOS::RTOS:Core:9.0.0
+      Source file:   Source\queue.c
+      Source file:   Source\list.c
+      Source file:   Source\portable\RVDS\ARM_CM3\port.c
+      Include file:  Source\include\FreeRTOS.h
+      Include file:  Source\include\queue.h
+      Include file:  Source\include\semphr.h
+      Source file:   Source\tasks.c
+      Include file:  Source\include\task.h
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
+      Include file:  CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h
 
    * Component: ARM.FreeRTOS::RTOS:Event Groups:9.0.0
       Source file:   Source\event_groups.c
@@ -118,6 +115,27 @@ Package Vendor: Keil
 
    * Component: ARM.FreeRTOS::RTOS:Heap:Heap_5:9.0.0
       Source file:   Source\portable\MemMang\heap_5.c
+
+   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+
+   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Source file:   Device\StdPeriph_Driver\src\misc.c
 
    * Component: Keil::Device:StdPeriph Drivers:SPI:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
@@ -127,34 +145,13 @@ Package Vendor: Keil
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
 
-   * Component: Keil::Device:StdPeriph Drivers:I2C:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_i2c.c
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
-
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
 
-   * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
-      Source file:   Device\StdPeriph_Driver\src\misc.c
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
-
-   * Component: Keil::Device:Startup:1.0.0
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\system_stm32f10x.c
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-
-   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
-
-   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
+   * Component: Keil::Device:StdPeriph Drivers:I2C:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_i2c.c
 </pre>
 </body>
 </html>
