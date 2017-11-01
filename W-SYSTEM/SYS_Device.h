@@ -23,7 +23,7 @@ typedef struct DriverTreeData
 	struct DriverTreeData* PFront;//前一个驱动
 	struct DriverTreeData* PNext;//后一个驱动
 } DriverTreeData;
-/*显示屏设备信息结构体*/
+/*显示屏设备结构体*/
 typedef struct
 {
 	u16 id;
@@ -44,10 +44,10 @@ typedef struct
 	u16 (* Get_Y_Acceleration)();
 	u16 (* Get_Z_Acceleration)();
 } GyroscopeData;
-/**/
+/*电机设备结构体*/
 typedef struct
 {
-	void (* TurnPower)();
+	void (* TurnPower)(float power,float speed,u8 FB);
 } BrushlessMotorData;
 /*通过测试的驱动列表*/
 extern DriverTreeData* PDriverPassTree;//外部调用，通过测试的驱动列表

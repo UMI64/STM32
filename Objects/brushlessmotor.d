@@ -39,3 +39,4 @@
 .\objects\brushlessmotor.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\brushlessmotor.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\brushlessmotor.o: BrushlessMotor\BrushlessMotor.h
+.\objects\brushlessmotor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

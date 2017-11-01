@@ -1,16 +1,35 @@
 #include "BrushlessMotor.h"
+#include "math.h"
 #define A GPIO_Pin_8
 #define B GPIO_Pin_9
 #define C GPIO_Pin_10
 #define US 72
-#define HalfCYCLE 500//500us为一个pwm周期
-#define PI_Init 120
-
-static uint8_t flag=1;//测试变量
+#define HalfCYCLE 800//250us为一个pwm周期
+#define PI_Init 260
+#define SINRANG 1024                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+#define DA 360
+#define xiao 0
 
 static BrushlessMotorData BrushlessMotordata;
-volatile uint16_t pi,freetime=20;
-
+static uint16_t freetime=10,change_time=65535;
+static float sinlist[SINRANG],pi;
+static uint8_t fb;
+float jiao (uint16_t x)
+{
+	if (x<256) return (float)x/256;
+	else if (x<768) return -(float)x/256+2;
+	else return (float)x/256-4;
+}
+void sin_Init ()
+{
+	uint16_t i=0;
+	for (i=0;i<SINRANG;++i)
+	{
+		float x=(float)i/(float)SINRANG*6.2831852f;
+		sinlist[i]=sinf(x);
+//		sinlist[i]=jiao(i);
+	}
+}
 void GPIOA_RCC_Init ()
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
@@ -44,8 +63,8 @@ void Time1_Init ()
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+	TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_Low;
 	TIM_OCInitStructure.TIM_Pulse = 0;
 	TIM_OC1Init(TIM1, &TIM_OCInitStructure);
 	
@@ -65,7 +84,9 @@ void Time1_Init ()
 	
 	TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
 	
-	TIM_TimeBaseInitStrecture.TIM_Period =(1.5f*freetime)+HalfCYCLE;/*重装载寄存器*/
+	TIM_CtrlPWMOutputs(TIM1,ENABLE);
+	
+	TIM_TimeBaseInitStrecture.TIM_Period =1.5f*freetime+HalfCYCLE;
 	TIM_TimeBaseInitStrecture.TIM_Prescaler = US;/*预分配*/
 	TIM_TimeBaseInitStrecture.TIM_ClockDivision = TIM_CKD_DIV1;/*时钟分频*/
 	TIM_TimeBaseInitStrecture.TIM_CounterMode = TIM_CounterMode_CenterAligned1;/*中央计数*/
@@ -77,40 +98,60 @@ void Time1_Init ()
 }
 void BrushlessMotor_SVPWM()
 {
-	uint16_t block=0;
+	static uint16_t pwm_time=0;
+	uint16_t block=0,flag=0;
+  	if (pwm_time>=change_time)
+	{
+		if (fb) 
+		{
+			if (pi>=DA) pi=xiao;
+			pi+=1;
+		}
+		else 
+		{
+			if (pi<=xiao) pi=DA;
+			pi-=1;
+		}
+		pwm_time=0;
+	}
+	++pwm_time;
 	block=pi/60;
+	TIM1->ARR=(1.5f*freetime)+HalfCYCLE;
 	switch (block)
 	{
-		//HalfCYCLE+freetime 0 																实际 1
-		//freetime+(1.1547*(sinlist[p])*HalfCYCLE) 减小       实际 增大
-		//freetime+(1.1547*(sinlist[60-p])*HalfCYCLE) 增大    实际 减小 
-		//freetime 1 																					实际 0
-		case 0 :		TIM1->CCR1 = HalfCYCLE+freetime;TIM1->CCR2=freetime+(1.1547f*(sinlist[60-pi])*HalfCYCLE);TIM1->CCR3=freetime;	//A:0 B:1-0 C:1
+		//freetime																		 	实际 1
+		//freetime+HalfCYCLE														实际 0
+		case 0 :/*0-59*/	TIM1->CCR1 = freetime+((sinlist[(uint16_t)(((float)pi/360)*SINRANG)-1]+sinlist[(uint16_t)(((60-(float)pi)/360)*SINRANG)-1])*HalfCYCLE);TIM1->CCR2=freetime+(sinlist[(uint16_t)(((float)pi/360)*SINRANG)-1]*HalfCYCLE);TIM1->CCR3=freetime;	//A:0 B:1-0 C:1
 								break;
-		case 1 :/*59*/TIM1->CCR1 = freetime+(1.1547f*(sinlist[pi])*HalfCYCLE);TIM1->CCR2=freetime;TIM1->CCR3 =HalfCYCLE+freetime;	//A:0-1 B:0 C:1
+		case 1 :/*60-119*/TIM1->CCR1 = freetime+(sinlist[(uint16_t)(((120-(float)pi)/360)*SINRANG)-1]*HalfCYCLE);TIM1->CCR2=freetime+((sinlist[(uint16_t)((((float)pi-60)/360)*SINRANG)-1]+sinlist[(uint16_t)(((120-(float)pi)/360)*SINRANG)-1])*HalfCYCLE);TIM1->CCR3 =freetime;	//A:0-1 B:0 C:1
 								break;
-		case 2 :/*0*/TIM1->CCR1=freetime;TIM1->CCR2=HalfCYCLE+freetime;TIM1->CCR3=freetime+(1.1547f*(sinlist[180-pi])*HalfCYCLE);	//A:1 B:0 C:1-0
+		case 2 :/*120-179*/TIM1->CCR1=freetime;TIM1->CCR2=freetime+((sinlist[(uint16_t)((((float)pi-120)/360)*SINRANG)-1]+sinlist[(uint16_t)(((180-(float)pi)/360)*SINRANG)-1])*HalfCYCLE);TIM1->CCR3=freetime+(sinlist[(uint16_t)((((float)pi-120)/360)*SINRANG)-1]*HalfCYCLE);	//A:1 B:0 C:1-0
 								break;
-		case 3 : 		TIM1->CCR1 =freetime;TIM1->CCR2 = freetime+(1.1547f*(sinlist[pi])*HalfCYCLE);TIM1->CCR3 = HalfCYCLE+freetime; 	//A:1 B:0-1 C:0
+		case 3 :/*180-239*/TIM1->CCR1 =freetime;TIM1->CCR2 = freetime+(sinlist[(uint16_t)(((240-(float)pi)/360)*SINRANG)-1]*HalfCYCLE);TIM1->CCR3 = freetime+((sinlist[(uint16_t)((((float)pi-180)/360)*SINRANG)-1]+sinlist[(uint16_t)(((240-(float)pi)/360)*SINRANG)-1])*HalfCYCLE); 	//A:1 B:0-1 C:0
 								break;
-		case 4 : 		TIM1->CCR1 =freetime+(1.1547f*(sinlist[300-pi])*HalfCYCLE);TIM1->CCR2=freetime;TIM1->CCR3=HalfCYCLE+freetime; 	//A:1-0 B:1 C:0
+		case 4 :/*240-299*/TIM1->CCR1 =freetime+(sinlist[(uint16_t)((((float)pi-240)/360)*SINRANG)-1]*HalfCYCLE);TIM1->CCR2=freetime;TIM1->CCR3=freetime+((sinlist[(uint16_t)((((float)pi-240)/360)*SINRANG)-1]+sinlist[(uint16_t)(((300-(float)pi)/360)*SINRANG)-1])*HalfCYCLE); 	//A:1-0 B:1 C:0
 								break;
-		case 5 : 		TIM1->CCR1 = HalfCYCLE+freetime;TIM1->CCR2 =freetime;TIM1->CCR3 = freetime+(1.1547f*(sinlist[pi])*HalfCYCLE); 	//A:0 B:1 C:0-1
+		case 5 :/*300-359*/TIM1->CCR1 = freetime+((sinlist[(uint16_t)((((float)pi-300)/360)*SINRANG)-1]+sinlist[(uint16_t)(((360-(float)pi)/360)*SINRANG)-1])*HalfCYCLE);TIM1->CCR2 =freetime;TIM1->CCR3 = freetime+(sinlist[(uint16_t)(((360-(float)pi)/360)*SINRANG)-1]*HalfCYCLE); 	//A:0 B:1 C:0-1
 								break;
-		case 6 :		TIM1->CCR1 = HalfCYCLE+freetime;TIM1->CCR2=freetime+(1.1547f*(sinlist[60-pi])*HalfCYCLE);TIM1->CCR3=freetime;	//A:0 B:1-0 C:1
+		case 6 :/*360*/		TIM1->CCR1 = freetime+((sinlist[(uint16_t)((((float)pi-360)/360)*SINRANG)-1]+sinlist[(uint16_t)(((420-(float)pi)/360)*SINRANG)-1])*HalfCYCLE);TIM1->CCR2=freetime+(sinlist[(uint16_t)((((float)pi-360)/360)*SINRANG)-1]*HalfCYCLE);TIM1->CCR3=freetime;	//A:0 B:1-0 C:1
 	}
+//	TIM1->CCR1=HalfCYCLE-((1+sinlist[(uint16_t)(((float)pi/360)*SINRANG)-1])/2*HalfCYCLE);
+//	if (pi>240) flag=1;else flag=0;
+//	TIM1->CCR2=HalfCYCLE-((1+sinlist[(uint16_t)(((float)((pi+120)-(360*flag))/360)*SINRANG)-1])/2*HalfCYCLE);
+//	if (pi>120) flag=1;else flag=0;
+//	TIM1->CCR3=HalfCYCLE-((1+sinlist[(uint16_t)(((float)((pi+240)-(360*flag))/360)*SINRANG)]-1)/2*HalfCYCLE);
 }
 void TIM1_UP_IRQHandler()
 {
 	
-	if (TIM1->CNT>HalfCYCLE>>1) //在中点
-	{
+//	if (TIM1->CNT>HalfCYCLE>>1) //在中点
+//	{
 		TIM_ITConfig(TIM1,TIM_IT_Update,DISABLE);//关闭定时器中断
 		BrushlessMotor_SVPWM();
 		TIM_ClearFlag(TIM1,TIM_FLAG_Update);/*清中断标志*/
 		TIM_ITConfig(TIM1,TIM_IT_Update,ENABLE);/*使能中断*/
-	}
-	else /*在边缘*/TIM_ClearFlag(TIM1,TIM_FLAG_Update);/*清中断标志*/
+//	}
+//	else /*在边缘*/TIM_ClearFlag(TIM1,TIM_FLAG_Update);/*清中断标志*/
 }
 void BrushlessMotor_SVPWM_Init()
 {
@@ -120,15 +161,17 @@ void BrushlessMotor_SVPWM_Init()
 	pi=PI_Init;
 	BrushlessMotor_SVPWM();
 }
-void BrushlessMotor_Turn()
+void BrushlessMotor_Turn(float power,float speed,u8 FB)
 {
-	if (flag)++pi;
-	else --pi;
-	if(pi>=121) flag=0;
-	else if (pi<=119) flag=1;
+	fb=FB;
+	if (power>100) power=100;
+	if (speed>100) speed=100;
+	freetime=1000-(power*9.95f);//20 - 1000 us
+	change_time=600-(speed*6);//0-600
 }
 void BrushlessMotor_Init ()
 {
+	sin_Init ();
 	GPIOA_8_9_10_Init ();
 	GPIOA_RCC_Init ();
 	Time1_Init ();
