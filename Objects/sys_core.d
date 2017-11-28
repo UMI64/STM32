@@ -24,3 +24,4 @@
 .\objects\sys_core.o: W-SYSTEM\SYS_Device.h
 .\objects\sys_core.o: W-SYSTEM\SYS_Memory.h
 .\objects\sys_core.o: W-SYSTEM\SYS_Memory.h
+.\objects\sys_core.o: W-SYSTEM\SYS_I2C.h

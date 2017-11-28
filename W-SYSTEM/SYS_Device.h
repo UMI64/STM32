@@ -37,12 +37,8 @@ typedef struct
 /*角加速度，加速度信息结构体*/
 typedef struct
 {
-	u16 (* Get_X_Angular_Acceleration)();
-	u16 (* Get_Y_Angular_Acceleration)();
-	u16 (* Get_Z_Angular_Acceleration)();
-	u16 (* Get_X_Acceleration)();
-	u16 (* Get_Y_Acceleration)();
-	u16 (* Get_Z_Acceleration)();
+	void (* Get_ACCEL)(float* ACCEL);
+	void (* Get_GYRO)(float* GYRO);
 } GyroscopeData;
 /*电机设备结构体*/
 typedef struct

@@ -24,6 +24,7 @@
 .\objects\sys_memory.o: W-SYSTEM\SYS_Device.h
 .\objects\sys_memory.o: W-SYSTEM\SYS_Device.h
 .\objects\sys_memory.o: W-SYSTEM\SYS_Memory.h
+.\objects\sys_memory.o: W-SYSTEM\SYS_I2C.h
 .\objects\sys_memory.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h
 .\objects\sys_memory.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\sys_memory.o: C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h

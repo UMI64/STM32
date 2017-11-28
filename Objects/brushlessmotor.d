@@ -38,5 +38,6 @@
 .\objects\brushlessmotor.o: .\W-SYSTEM\SYS_Device.h
 .\objects\brushlessmotor.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\brushlessmotor.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\brushlessmotor.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\brushlessmotor.o: BrushlessMotor\BrushlessMotor.h
 .\objects\brushlessmotor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

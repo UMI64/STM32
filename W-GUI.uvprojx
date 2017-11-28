@@ -497,6 +497,11 @@
               <FileType>5</FileType>
               <FilePath>.\W-SYSTEM\SYS_Memory.h</FilePath>
             </File>
+            <File>
+              <FileName>SYS_I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\W-SYSTEM\SYS_I2C.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

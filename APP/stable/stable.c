@@ -1,6 +1,7 @@
 #include "stable.h"
 GyroscopeData* GetGyroscopeData;
 BrushlessMotorData* BrushlessMotordata;
+float ABuff[3]={0},GBuff[3]={0};
 void Stable_LoadFunction ()
 {
 	DriverTreeData* PTEMP;
@@ -11,12 +12,8 @@ void Stable_LoadFunction ()
 	{/*驱动正确*/
 		GetGyroscopeData=SYS_CallMem (sizeof (GyroscopeData),STABLE_MENID);
 		PGyroscopeData=PTEMP->DriverInfo.PInfo;
-		GetGyroscopeData->Get_X_Angular_Acceleration=PGyroscopeData->Get_X_Angular_Acceleration;
-		GetGyroscopeData->Get_Y_Angular_Acceleration=PGyroscopeData->Get_Y_Angular_Acceleration;
-		GetGyroscopeData->Get_Z_Angular_Acceleration=PGyroscopeData->Get_Z_Angular_Acceleration;
-		GetGyroscopeData->Get_X_Acceleration=PGyroscopeData->Get_X_Acceleration;
-		GetGyroscopeData->Get_Y_Acceleration=PGyroscopeData->Get_Y_Acceleration;
-		GetGyroscopeData->Get_Z_Acceleration=PGyroscopeData->Get_Z_Acceleration;
+		GetGyroscopeData->Get_ACCEL=PGyroscopeData->Get_ACCEL;
+		GetGyroscopeData->Get_GYRO=PGyroscopeData->Get_GYRO;
 	}
 	else
 	{/*驱动错误*/
@@ -38,14 +35,15 @@ void stable ()
 {
 	while (1)
 	{
-		GetGyroscopeData->Get_X_Angular_Acceleration ();
-		BrushlessMotordata->TurnPower (100,20,1);
-		vTaskDelay (100);
+		GetGyroscopeData->Get_ACCEL (ABuff);
+		GetGyroscopeData->Get_GYRO (GBuff);
+		//BrushlessMotordata->TurnPower (100,80,1);
+		//vTaskDelay (10);
 	}
 }
 void Stable_Init ()
 {
 	SYS_CallHEAP (500,STABLE_MENID);
 	Stable_LoadFunction ();
-	xTaskCreate(stable,"test",50,NULL,1,NULL);
+	xTaskCreate(stable,"test",100,NULL,1,NULL);
 }

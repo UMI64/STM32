@@ -38,4 +38,5 @@
 .\objects\tft_ili9341.o: .\W-SYSTEM\SYS_Device.h
 .\objects\tft_ili9341.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\tft_ili9341.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\tft_ili9341.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\tft_ili9341.o: TFT_ILI9341\tft_ili9341.h

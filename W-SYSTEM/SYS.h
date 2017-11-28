@@ -15,4 +15,6 @@ typedef enum {NotReady,GetReady} ReadyState;
 #include "SYS_CORE.h"
 #include "SYS_Device.h"
 #include "SYS_Memory.h"
+#include "SYS_I2C.h"
+
 #endif

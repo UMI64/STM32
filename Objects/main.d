@@ -37,6 +37,7 @@
 .\objects\main.o: .\W-SYSTEM\SYS_Device.h
 .\objects\main.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\main.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\main.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\main.o: .\W-GUI\GUI.h
 .\objects\main.o: .\W-GUI\GUI_Core.h
 .\objects\main.o: .\APP\stable\stable.h

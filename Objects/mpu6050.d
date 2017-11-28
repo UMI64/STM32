@@ -38,4 +38,5 @@
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_Device.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\mpu6050.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\mpu6050.o: MPU6050\mpu6050.h

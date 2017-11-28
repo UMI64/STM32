@@ -48,6 +48,7 @@ u8 GUI_Find_TestHardDrawFUNChange ()
 };
 void GUI ()
 {
+
 	while (1)
 	{
 		if (GUI_Find_TestHardDrawFUNChange ())

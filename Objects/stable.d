@@ -38,4 +38,5 @@
 .\objects\stable.o: .\W-SYSTEM\SYS_Device.h
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\stable.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\stable.o: APP\stable\stable.h

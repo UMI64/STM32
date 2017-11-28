@@ -6,6 +6,7 @@
 ".\objects\sys_core.o"
 ".\objects\sys_device.o"
 ".\objects\sys_memory.o"
+".\objects\sys_i2c.o"
 ".\objects\mpu6050.o"
 ".\objects\brushlessmotor.o"
 ".\objects\clib_arm.o"

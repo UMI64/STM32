@@ -99,7 +99,7 @@ void Time1_Init ()
 void BrushlessMotor_SVPWM()
 {
 	static uint16_t pwm_time=0;
-	uint16_t block=0,flag=0;
+	uint16_t block=0;
   	if (pwm_time>=change_time)
 	{
 		if (fb) 

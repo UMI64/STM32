@@ -25,6 +25,7 @@
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Device.h
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\gui_core.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\gui_core.o: W-GUI\GUI_Core.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h
 .\objects\gui_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
