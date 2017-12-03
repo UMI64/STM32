@@ -7,7 +7,7 @@
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h
-.\objects\stable.o: C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103C8\stm32f10x_conf.h
+.\objects\stable.o: C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE\stm32f10x_conf.h
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_dma.h
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
@@ -39,4 +39,11 @@
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\stable.o: .\W-SYSTEM\SYS_I2C.h
+.\objects\stable.o: .\W-GUI\GUI_Core.h
+.\objects\stable.o: .\W-GUI\GUI.h
+.\objects\stable.o: .\W-GUI\GUI_Core.h
+.\objects\stable.o: .\W-GUI\GUI_Refresh.h
+.\objects\stable.o: .\W-GUI\GUI.h
+.\objects\stable.o: .\W-GUI\GUI_2DLib.h
 .\objects\stable.o: APP\stable\stable.h
+.\objects\stable.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

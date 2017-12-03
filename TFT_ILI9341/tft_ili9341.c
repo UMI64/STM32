@@ -283,6 +283,10 @@ void TFT_ILI9341_LoadInfo (DriverInfoData* PDriverInfo)
 	LCDdata.DrawPoint=Screen_DrawPoint;
 	LCDdata.DrawRange=Screen_Clear;
 	LCDdata.ReadColor=Screen_ReadColor;
+	LCDdata.width=240;
+	LCDdata.length=320;
+	LCDdata.color_type=16;
+	LCDdata.id=0;
 	PDriverInfo->Init=TFT_ILI9341_Init;
 	PDriverInfo->Test=TFT_ILI9341_TEST;
 	PDriverInfo->PInfo=&LCDdata;

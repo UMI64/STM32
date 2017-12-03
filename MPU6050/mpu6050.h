@@ -119,6 +119,10 @@
 #define MPU6050_RA_WHO_AM_I         0x75
 
 //#define 1101000
+/*内部调用函数*/
+void MPU_6050_INIT (void);
+void Get_ACCEL (float* ACCEL);
+void Get_GYRO (float* GYRO);
 /*系统调用函数*/
 void MPU_6050_LoadInfo (DriverInfoData* PDriverInfo);
 #endif

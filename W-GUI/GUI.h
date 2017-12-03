@@ -1,10 +1,9 @@
 #ifndef __GUI_H
 #define __GUI_H
-#include "SYS.h"
-#include "GUI_Core.h"
 #include <stm32f10x.h>
 #include <FreeRTOS.h>
 #include <task.h>
+typedef uint8_t WDID;
 /*硬件绘图函数*/
 typedef struct HardDrawfunction
 {
@@ -12,5 +11,38 @@ typedef struct HardDrawfunction
 		void (* DrawRange) (u16 x1,u16 y1,u16 x2,u16 y2,u16 Color);
 		void (* ReadColor) (u16 x,u16 y,uint16_t *Color);
 }HardDraw;
-
+/*硬件信息*/
+typedef struct HardInformationFormat
+{
+	u16 id;
+	u16 width;
+	u16 length;
+	u8  color_type;
+}HardInformationFormat;
+/*GUI信息格式*/
+typedef struct WDFormat
+{
+	float Length;
+	float Width;
+	float XPosition;
+	float YPosition;
+}WDFormat;
+/*GUI窗口信息链表格式*/
+typedef struct WDListFormat
+{
+	struct WDListFormat * PFrontWD;
+	struct WDListFormat * PNextWD;
+	WDID ID;
+	float Length;
+	float Width;
+	float XPosition;
+	float YPosition;
+}WDListFormat;
+extern HardInformationFormat * HardInformation;
+extern HardDraw * PHardDrawFUN;
+extern WDListFormat * WDList;
+#include "SYS.h"
+#include "GUI_Core.h"
+#include "GUI_Refresh.h"
+#include "GUI_2DLib.h"
 #endif

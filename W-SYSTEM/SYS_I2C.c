@@ -1,15 +1,6 @@
 #include "stm32f10x.h"
 #include "SYS_I2C.h"
-#define I2CSpeed 200
 I2CFUNC I2CFunc={MYI2C_Init,MYI2C_GenerateSTART,MYI2C_GenerateSTOP,MYI2C_Ack,MYI2C_Nack,MYI2C_Check,MYI2C_Send7bitAddress,MYI2C_Write8bit,MYI2C_Read8bit};
-void DelayMs(uint8_t uc)
-{
-	uint8_t i,j;
-
-	for (i=0; i<uc; i++) {
-					for (j=0; j<10; j++);
-	}
-}
 void MYI2C_Init (I2CPORT PORT)
 {
 	GPIO_InitTypeDef GPIO_InitData;
@@ -29,54 +20,52 @@ void MYI2C_Init (I2CPORT PORT)
 	}
 	
 	GPIO_Init(PORT.GPIOx, &GPIO_InitData);
-//	GPIO_SetBits(GPIOB,GPIO_Pin_7);
-//	GPIO_ResetBits(GPIOB,GPIO_Pin_8);//0
 }
 void MYI2C_GenerateSTART(I2CPORT PORT)
 {
 	GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
 	GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
-	DelayMs(I2CSpeed);
+	//
 	GPIO_ResetBits(PORT.GPIOx,PORT.sda);//0
 }
 void MYI2C_GenerateSTOP(I2CPORT PORT)
 {
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 	GPIO_ResetBits(PORT.GPIOx,PORT.sda);//0
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 }
 void MYI2C_Ack (I2CPORT PORT)
 {
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-	DelayMs(I2CSpeed);
+	//
 	GPIO_ResetBits(PORT.GPIOx,PORT.sda);//0
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-	DelayMs(I2CSpeed);
+	//
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 	GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
 }
 void MYI2C_Nack(I2CPORT PORT)
 {
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-	DelayMs(I2CSpeed);
+	//
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 }
 uint8_t MYI2C_Check (I2CPORT PORT)
 {
 	uint16_t c=0;
 	GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
-	DelayMs(I2CSpeed);
+	//
 	GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-	DelayMs(I2CSpeed);
+	//
 	while ((PORT.GPIOx->IDR & PORT.sda) != (uint32_t)Bit_RESET)
 	{
 		c++;
@@ -94,7 +83,7 @@ void MYI2C_Send7bitAddress(I2CPORT PORT,uint8_t slaveAddr,uint8_t rw)
 	for (i=0;i<8;i++)
 		{
 			GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-			DelayMs(I2CSpeed);
+			//
 			if (data&0x80)
 			{
 				GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
@@ -103,9 +92,9 @@ void MYI2C_Send7bitAddress(I2CPORT PORT,uint8_t slaveAddr,uint8_t rw)
 			{
 				GPIO_ResetBits(PORT.GPIOx,PORT.sda);//0
 			}
-			DelayMs(I2CSpeed);
+			//
 			GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-			DelayMs(I2CSpeed);
+			//
 			GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 			data<<=1;
 		}
@@ -116,7 +105,7 @@ void MYI2C_Write8bit(I2CPORT PORT,uint8_t data)
 	for (i=0;i<8;i++)
 		{
 			GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-			DelayMs(I2CSpeed);
+			//
 			if (data&0x80)
 			{
 				GPIO_SetBits(PORT.GPIOx,PORT.sda);//1
@@ -125,9 +114,9 @@ void MYI2C_Write8bit(I2CPORT PORT,uint8_t data)
 			{
 				GPIO_ResetBits(PORT.GPIOx,PORT.sda);//0
 			}
-			DelayMs(I2CSpeed);
+			//
 			GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-			DelayMs(I2CSpeed);
+			//
 			GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 			data<<=1;
 		}
@@ -138,9 +127,9 @@ uint8_t MYI2C_Read8bit(I2CPORT PORT)
 	while (i<8)
 	{
 		GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
-		DelayMs(I2CSpeed);
+		//
 		GPIO_SetBits(PORT.GPIOx,PORT.scl);//1
-		DelayMs(I2CSpeed);
+		//
 		data=data | ((PORT.GPIOx->IDR & PORT.sda) != (uint32_t)Bit_RESET);
 		GPIO_ResetBits(PORT.GPIOx,PORT.scl);//0
 		if (i==7) return data;

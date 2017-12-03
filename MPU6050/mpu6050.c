@@ -2,10 +2,11 @@
 static GyroscopeData Gyroscopedata;
 I2CPORT PORT;
 uint8_t flag;
+float fix_gyro_zero[3]={0};
 void MPU6050_I2C_ERROR (uint8_t f)
 {
 	flag=f;
-	while (1);
+	MPU_6050_INIT ();
 }
 void MPU6050_I2C_ByteWrite(u8 slaveAddr, u8 pBuffer, u8 writeAddr)
 {
@@ -46,6 +47,25 @@ void MPU6050_I2C_BufferRead(u8 slaveAddr, uint8_t* pBuffer, u8 readAddr,uint8_t 
 
 	xTaskResumeAll ();
 }
+void MPU_6050_FixZero(void (* TEMP)(float* temp),float* zerofixed)
+{
+	float temp[3],Temp[3],max[3]={0},min[3]={0};
+	for (uint16_t i=0;i<2000;++i)
+	{
+		TEMP(temp);
+		for (uint8_t j=0;j<3;++j)
+		{
+			if (i==0) {max[j]=temp[j];min[j]=temp[j];}
+			if (temp[j]>max[j]) max[j]=temp[j];
+			if (temp[j]<min[j]) min[j]=temp[j];
+			Temp[j]+=temp[j];
+		}
+	}
+	for (uint8_t j=0;j<3;++j)
+	{
+		zerofixed[j]=Temp[j]/2000;
+	}
+}
 void MPU_6050_INIT ()
 {
 	PORT.sda=GPIO_Pin_7;
@@ -57,6 +77,8 @@ void MPU_6050_INIT ()
 	MPU6050_I2C_ByteWrite(0xD0,0x06,MPU6050_RA_CONFIG);                 
 	MPU6050_I2C_ByteWrite(0xD0,0x01,MPU6050_RA_ACCEL_CONFIG);     //加速度量程 2g
 	MPU6050_I2C_ByteWrite(0xD0,0x08,MPU6050_RA_GYRO_CONFIG);          //角速度量程 500度/s
+	for(uint16_t i=0;i<10000;i++);
+	MPU_6050_FixZero (Get_GYRO,fix_gyro_zero);
 }
 /*系统接口函数*/
 TESTPASS MPU_6050_TEST ()
@@ -78,7 +100,7 @@ void Get_GYRO (float* GYRO)
 	MPU6050_I2C_BufferRead(0xD0,tmpBuffer,MPU6050_RA_GYRO_XOUT_H,6);
 	for (i=0;i<3;i++)
 	{
-		GYRO[i]=((float)((short)((tmpBuffer[i*2]<<8) | (tmpBuffer[(i*2)+1]))))/65.5;
+		GYRO[i]=(((float)((short)((tmpBuffer[i*2]<<8) | (tmpBuffer[(i*2)+1]))))/65.5f)-fix_gyro_zero[i];
 	}
 }
 void MPU_6050_LoadInfo (DriverInfoData* PDriverInfo)
