@@ -42,8 +42,9 @@
 .\objects\stable.o: .\W-GUI\GUI_Core.h
 .\objects\stable.o: .\W-GUI\GUI.h
 .\objects\stable.o: .\W-GUI\GUI_Core.h
-.\objects\stable.o: .\W-GUI\GUI_Refresh.h
+.\objects\stable.o: .\W-GUI\GUI_Window.h
 .\objects\stable.o: .\W-GUI\GUI.h
+.\objects\stable.o: .\W-GUI\GUI_Message.h
 .\objects\stable.o: .\W-GUI\GUI_2DLib.h
 .\objects\stable.o: APP\stable\stable.h
 .\objects\stable.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

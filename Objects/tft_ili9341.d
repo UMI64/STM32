@@ -42,7 +42,8 @@
 .\objects\tft_ili9341.o: .\W-GUI\GUI_Core.h
 .\objects\tft_ili9341.o: .\W-GUI\GUI.h
 .\objects\tft_ili9341.o: .\W-GUI\GUI_Core.h
-.\objects\tft_ili9341.o: .\W-GUI\GUI_Refresh.h
+.\objects\tft_ili9341.o: .\W-GUI\GUI_Window.h
 .\objects\tft_ili9341.o: .\W-GUI\GUI.h
+.\objects\tft_ili9341.o: .\W-GUI\GUI_Message.h
 .\objects\tft_ili9341.o: .\W-GUI\GUI_2DLib.h
 .\objects\tft_ili9341.o: TFT_ILI9341\tft_ili9341.h

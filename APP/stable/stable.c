@@ -3,7 +3,9 @@
 /**/
 GyroscopeData* GetGyroscopeData;
 BrushlessMotorData* BrushlessMotordata;
-/**/
+/*内存ID*/
+uint8_t MENID;
+/*加速度角速度变量*/
 float ABuff[3]={0},GBuff[3]={0};
 /*四元数变量*/
 #define x 0
@@ -24,7 +26,7 @@ void Stable_LoadFunction ()
 	for (PTEMP=PDriverPassTree;PTEMP->DriverInfo.DriverID!=50 && PTEMP->PNext!=NULL;PTEMP=PTEMP->PNext);//寻找已加载驱动
 	if (PTEMP->DriverInfo.DriverID==50)//如果有符合的驱动就把函数链接起来
 	{/*驱动正确*/
-		GetGyroscopeData=SYS_CallMem (sizeof (GyroscopeData),STABLE_MENID);
+		GetGyroscopeData=SYS_CallMem (sizeof (GyroscopeData),MENID);
 		PGyroscopeData=PTEMP->DriverInfo.PInfo;
 		GetGyroscopeData->Get_ACCEL=PGyroscopeData->Get_ACCEL;
 		GetGyroscopeData->Get_GYRO=PGyroscopeData->Get_GYRO;
@@ -36,7 +38,7 @@ void Stable_LoadFunction ()
 	for (PTEMP=PDriverPassTree;PTEMP->DriverInfo.DriverID!=51 && PTEMP->PNext!=NULL;PTEMP=PTEMP->PNext);//寻找已加载驱动
 	if (PTEMP->DriverInfo.DriverID==51)//如果有符合的驱动就把函数链接起来
 	{/*驱动正确*/
-		BrushlessMotordata=SYS_CallMem (sizeof (BrushlessMotorData),STABLE_MENID);
+		BrushlessMotordata=SYS_CallMem (sizeof (BrushlessMotorData),MENID);
 		PBrushlessMotordata=PTEMP->DriverInfo.PInfo;
 		BrushlessMotordata->TurnPower=PBrushlessMotordata->TurnPower;
 	}
@@ -48,14 +50,14 @@ void Stable_LoadFunction ()
 void drawpic(WDID id,float Yaw,float Pitch,float Roll)
 {
 	static float px=0,py;
-	if (px>=240){GUI_ActiveClear (id,0xffff);px=0;}
+	if (px>=240){GUI_2DLib_Clear (id,0xffff);px=0;}
 	else px+=0.1;
 	py=50+Roll*0.56f;
-	GUI_DrawPoint (id,px,py,0x7800);//roll红
+	GUI_2DLib_DrawPoint (id,px,py,0x7800);//roll红
 	py=150+Pitch*0.56f;
-	GUI_DrawPoint (id,px,py,0x07E0);//Pitch绿
+	GUI_2DLib_DrawPoint (id,px,py,0x07E0);//Pitch绿
 	py=250+Yaw*0.56f;
-	GUI_DrawPoint (id,px,py,0x001F);//Yaw蓝
+	GUI_2DLib_DrawPoint (id,px,py,0x001F);//Yaw蓝
 }
 void stable ()
 {
@@ -65,7 +67,7 @@ void stable ()
 	WD.Width=240;
 	WD.XPosition=0;
 	WD.YPosition=0;
-	id=GUI_CreatWD(WD);
+	id=GUI_WINDOW_CreatWD(WD);
 	while (1)
 	{
 		GetGyroscopeData->Get_ACCEL (ABuff);//得到xyz加速度
@@ -119,7 +121,7 @@ void IMUupdate(float * ABuff,float * GBuff)
 }
 void Stable_Init ()
 {
-	SYS_CallHEAP (500,STABLE_MENID);
+	MENID=SYS_CallHEAP (500);
 	Stable_LoadFunction ();
 	xTaskCreate(stable,"test",100,NULL,1,NULL);
 }

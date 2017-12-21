@@ -41,6 +41,7 @@
 .\objects\gui_core.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\gui_core.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\gui_core.o: .\W-GUI\GUI_Core.h
-.\objects\gui_core.o: W-GUI\GUI_Refresh.h
+.\objects\gui_core.o: W-GUI\GUI_Window.h
 .\objects\gui_core.o: W-GUI\GUI.h
+.\objects\gui_core.o: W-GUI\GUI_Message.h
 .\objects\gui_core.o: W-GUI\GUI_2DLib.h

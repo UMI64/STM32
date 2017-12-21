@@ -42,8 +42,9 @@
 .\objects\brushlessmotor.o: .\W-GUI\GUI_Core.h
 .\objects\brushlessmotor.o: .\W-GUI\GUI.h
 .\objects\brushlessmotor.o: .\W-GUI\GUI_Core.h
-.\objects\brushlessmotor.o: .\W-GUI\GUI_Refresh.h
+.\objects\brushlessmotor.o: .\W-GUI\GUI_Window.h
 .\objects\brushlessmotor.o: .\W-GUI\GUI.h
+.\objects\brushlessmotor.o: .\W-GUI\GUI_Message.h
 .\objects\brushlessmotor.o: .\W-GUI\GUI_2DLib.h
 .\objects\brushlessmotor.o: BrushlessMotor\BrushlessMotor.h
 .\objects\brushlessmotor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

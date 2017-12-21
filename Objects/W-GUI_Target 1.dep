@@ -1,5 +1,5 @@
 Dependencies for Project 'W-GUI', Target 'Target 1': (DO NOT MODIFY !)
-F (.\APP\main.c)(0x5A22A992)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\APP\main.c)(0x5A3BB47F)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
@@ -32,15 +32,16 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
-I (.\APP\stable\stable.h)(0x5A225636)
-F (.\APP\stable\stable.c)(0x5A2372C5)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\stable.o --omf_browse .\objects\stable.crf --depend .\objects\stable.d)
-I (APP\stable\stable.h)(0x5A225636)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+I (.\APP\stable\stable.h)(0x5A3940DC)
+F (.\APP\stable\stable.c)(0x5A3A8A12)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\stable.o --omf_browse .\objects\stable.crf --depend .\objects\stable.d)
+I (APP\stable\stable.h)(0x5A3940DC)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
@@ -73,12 +74,13 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x53463A44)
 F (.\TFT_ILI9341\tft_ili9341.c)(0x5A22DFDF)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\tft_ili9341.o --omf_browse .\objects\tft_ili9341.crf --depend .\objects\tft_ili9341.d)
 I (TFT_ILI9341\tft_ili9341.h)(0x59E2395B)
@@ -114,16 +116,17 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 F (.\TFT_ILI9341\tft_ili9341.h)(0x59E2395B)()
-F (.\W-GUI\GUI_Core.c)(0x5A22D8B3)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_core.o --omf_browse .\objects\gui_core.crf --depend .\objects\gui_core.d)
-I (W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (W-GUI\GUI.h)(0x5A22D6A6)
+F (.\W-GUI\GUI_Core.c)(0x5A3A80CD)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_core.o --omf_browse .\objects\gui_core.crf --depend .\objects\gui_core.d)
+I (W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
@@ -156,16 +159,17 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (W-GUI\GUI_2DLib.h)(0x5A22D97A)
-F (.\W-GUI\GUI_Core.h)(0x5A22D8B3)()
-F (.\W-GUI\GUI.h)(0x5A22D6A6)()
-F (.\W-GUI\GUI_Refresh.c)(0x5A22BD80)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_refresh.o --omf_browse .\objects\gui_refresh.crf --depend .\objects\gui_refresh.d)
-I (W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (W-GUI\GUI.h)(0x5A22D6A6)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+F (.\W-GUI\GUI_Core.h)(0x5A3A80CD)()
+F (.\W-GUI\GUI.h)(0x5A3A8FA0)()
+F (.\W-GUI\GUI_2DLib.c)(0x5A3B6BCC)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_2dlib.o --omf_browse .\objects\gui_2dlib.crf --depend .\objects\gui_2dlib.d)
+I (W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+I (W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
@@ -198,15 +202,17 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (W-GUI\GUI_2DLib.h)(0x5A22D97A)
-F (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)()
-F (.\W-GUI\GUI_2DLib.c)(0x5A22D712)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_2dlib.o --omf_browse .\objects\gui_2dlib.crf --depend .\objects\gui_2dlib.d)
-I (W-GUI\GUI_2DLib.h)(0x5A22D97A)
-I (W-GUI\GUI.h)(0x5A22D6A6)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (W-GUI\GUI_MESSdef.h)(0x5A3A8FDC)
+F (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)()
+F (.\W-GUI\GUI_Message.c)(0x5A3BBEA4)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_message.o --omf_browse .\objects\gui_message.crf --depend .\objects\gui_message.d)
+I (W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
@@ -239,12 +245,56 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (W-GUI\GUI_Refresh.h)(0x5A22BD80)
-F (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)()
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+I (W-GUI\GUI_MESSdef.h)(0x5A3A8FDC)
+F (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)()
+F (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)()
+F (.\W-GUI\GUI_Window.c)(0x5A3A8FFD)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\gui_window.o --omf_browse .\objects\gui_window.crf --depend .\objects\gui_window.d)
+I (W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (W-GUI\GUI.h)(0x5A3A8FA0)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE\stm32f10x_conf.h)(0x52F9EDD0)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_dma.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_spi.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_tim.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h)(0x59E2395B)
+I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOS_Tick_Config.h)(0x59B50505)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h)(0x58BCC424)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\projdefs.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\portable.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\deprecated_definitions.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\portmacro.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h)(0x589BF93E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h)(0x589BF93E)
+I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
+I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 F (.\W-SYSTEM\SYS_Core.h)(0x59CD15E2)()
 F (.\W-SYSTEM\SYS_Core.c)(0x5A22AA7E)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_core.o --omf_browse .\objects\sys_core.crf --depend .\objects\sys_core.d)
 I (W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
@@ -266,10 +316,10 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm3
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_tim.h)(0x52F9EB20)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
 I (W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h)(0x59E2395B)
@@ -283,9 +333,10 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\por
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h)(0x589BF93E)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
-F (.\W-SYSTEM\SYS_Device.c)(0x59E2395B)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_device.o --omf_browse .\objects\sys_device.crf --depend .\objects\sys_device.d)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+F (.\W-SYSTEM\SYS_Device.c)(0x5A32A65D)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_device.o --omf_browse .\objects\sys_device.crf --depend .\objects\sys_device.d)
 I (W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
 I (W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
@@ -305,10 +356,10 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm3
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_tim.h)(0x52F9EB20)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
 I (W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
-I (W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h)(0x59E2395B)
@@ -322,15 +373,16 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\por
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h)(0x589BF93E)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 I (.\TFT_ILI9341\tft_ili9341.h)(0x59E2395B)
 I (.\MPU6050\mpu6050.h)(0x5A1E46A0)
 I (.\BrushlessMotor\BrushlessMotor.h)(0x5A1CD78D)
 F (.\W-SYSTEM\SYS.h)(0x5A22D97A)()
 F (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)()
-F (.\W-SYSTEM\SYS_Memory.c)(0x59CD15E2)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_memory.o --omf_browse .\objects\sys_memory.crf --depend .\objects\sys_memory.d)
-I (W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+F (.\W-SYSTEM\SYS_Memory.c)(0x5A3BC5F5)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_memory.o --omf_browse .\objects\sys_memory.crf --depend .\objects\sys_memory.d)
+I (W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
@@ -351,8 +403,8 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc
 I (W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
 I (W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\FreeRTOS.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS\FreeRTOSConfig.h)(0x59E2395B)
@@ -366,9 +418,10 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3\por
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\mpu_wrappers.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h)(0x589BF93E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h)(0x589BF93E)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
-F (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)()
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
+F (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)()
 F (.\W-SYSTEM\SYS_I2C.c)(0x5A1E28E2)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\sys_i2c.o --omf_browse .\objects\sys_i2c.crf --depend .\objects\sys_i2c.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (C:\Users\94942\Documents\GitHub\STM32\RTE\RTE_Components.h)(0x59E2395B)
@@ -420,12 +473,13 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 F (.\BrushlessMotor\BrushlessMotor.c)(0x5A1CD78D)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\brushlessmotor.o --omf_browse .\objects\brushlessmotor.crf --depend .\objects\brushlessmotor.d)
 I (BrushlessMotor\BrushlessMotor.h)(0x5A1CD78D)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
@@ -460,12 +514,13 @@ I (.\W-SYSTEM\SYS.h)(0x5A22D97A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
 I (.\W-SYSTEM\SYS_CORE.h)(0x59CD15E2)
 I (.\W-SYSTEM\SYS_Device.h)(0x5A1CD78E)
-I (.\W-SYSTEM\SYS_Memory.h)(0x59CD15E2)
+I (.\W-SYSTEM\SYS_Memory.h)(0x5A32A506)
 I (.\W-SYSTEM\SYS_I2C.h)(0x5A1CD78E)
-I (.\W-GUI\GUI_Core.h)(0x5A22D8B3)
-I (.\W-GUI\GUI.h)(0x5A22D6A6)
-I (.\W-GUI\GUI_Refresh.h)(0x5A22BD80)
-I (.\W-GUI\GUI_2DLib.h)(0x5A22D97A)
+I (.\W-GUI\GUI_Core.h)(0x5A3A80CD)
+I (.\W-GUI\GUI.h)(0x5A3A8FA0)
+I (.\W-GUI\GUI_Window.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_Message.h)(0x5A3A8FD3)
+I (.\W-GUI\GUI_2DLib.h)(0x5A3A8FA0)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x53463A44)
 F (C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Source\ARM\clib_arm.c)(0x589BF924)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\clib_arm.o --omf_browse .\objects\clib_arm.crf --depend .\objects\clib_arm.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
@@ -620,7 +675,7 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm3
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_spi.h)(0x52F9EB20)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
 F (RTE\Device\STM32F103ZE\RTE_Device.h)(0x57D24F70)()
-F (RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s)(0x5825386C)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc--pd "__UVISION_VERSION SETA 514" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d)
+F (RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s)(0x5A393D6F)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc--pd "__UVISION_VERSION SETA 514" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d)
 F (RTE\Device\STM32F103ZE\stm32f10x_conf.h)(0x52F9EDD0)()
 F (RTE\Device\STM32F103ZE\system_stm32f10x.c)(0x5825386C)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I.\TFT_ILI9341 -I.\W-GUI -I.\W-SYSTEM -I.\MPU6050 -I.\APP\stable -I.\BrushlessMotor-I C:\Users\94942\Documents\GitHub\STM32\RTE-I C:\Users\94942\Documents\GitHub\STM32\RTE\Device\STM32F103ZE-I C:\Users\94942\Documents\GitHub\STM32\RTE\RTOS-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)

@@ -19,7 +19,7 @@ typedef struct HardInformationFormat
 	u16 length;
 	u8  color_type;
 }HardInformationFormat;
-/*GUI信息格式*/
+/*GUI窗口信息格式*/
 typedef struct WDFormat
 {
 	float Length;
@@ -38,11 +38,22 @@ typedef struct WDListFormat
 	float XPosition;
 	float YPosition;
 }WDListFormat;
+/*消息链表格式*/
+typedef struct MESSListFormat
+{
+	struct MESSListFormat * PNext;
+	uint16_t Data;
+	float fData;
+}MESSListFormat;
+/*GUI内存ID*/
+extern uint8_t GUIMENID;
+/**/
 extern HardInformationFormat * HardInformation;
 extern HardDraw * PHardDrawFUN;
 extern WDListFormat * WDList;
 #include "SYS.h"
 #include "GUI_Core.h"
-#include "GUI_Refresh.h"
+#include "GUI_Window.h"
+#include "GUI_Message.h"
 #include "GUI_2DLib.h"
 #endif

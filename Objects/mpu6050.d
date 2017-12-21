@@ -42,7 +42,8 @@
 .\objects\mpu6050.o: .\W-GUI\GUI_Core.h
 .\objects\mpu6050.o: .\W-GUI\GUI.h
 .\objects\mpu6050.o: .\W-GUI\GUI_Core.h
-.\objects\mpu6050.o: .\W-GUI\GUI_Refresh.h
+.\objects\mpu6050.o: .\W-GUI\GUI_Window.h
 .\objects\mpu6050.o: .\W-GUI\GUI.h
+.\objects\mpu6050.o: .\W-GUI\GUI_Message.h
 .\objects\mpu6050.o: .\W-GUI\GUI_2DLib.h
 .\objects\mpu6050.o: MPU6050\mpu6050.h

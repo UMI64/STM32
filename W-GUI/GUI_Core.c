@@ -1,9 +1,14 @@
 #include "GUI_Core.h"
+/*设备信息结构体变量*/
 HardInformationFormat * HardInformation;
+/*设备功能函数结构体变量*/
 HardDraw * PHardDrawFUN;
+/*窗口信息结构体(链表)变量*/
 WDListFormat * WDList=NULL;
-	
-uc8 GUI_LoadFunction ()
+/*GUI内存ID变量*/
+uint8_t GUIMENID;
+
+uc8 GUI_CORE_LoadFunction ()
 {
 	DriverTreeData* PTEMP;
 	LCDData* PLCDdata;
@@ -25,89 +30,26 @@ uc8 GUI_LoadFunction ()
 		return 0;
 	}
 }
-void GUI_WaitFunction ()
+void GUI_CORE_WaitFunction ()
 {
-	while (GUI_LoadFunction ()==0);
-	//xTaskCreate(GUI,"test",50,NULL,1,NULL);//启动GUI核心进程
+	while (GUI_CORE_LoadFunction ()==0);
+	xTaskCreate(GUI_CORE,"test",50,NULL,1,NULL);//启动GUI核心进程
 	vTaskDelete(NULL);
 }
-void GUI_Init ()
+void GUI_CORE_Init ()
 {
-	SYS_CallHEAP (GUI_MEMSIZE,GUI_MENID);//分配GUI内存
-	PHardDrawFUN=SYS_CallMem (sizeof (HardDraw),GUI_MENID);//
-	HardInformation=SYS_CallMem (sizeof (HardInformationFormat),GUI_MENID);//
-	xTaskCreate(GUI_WaitFunction,"test",50,NULL,1,NULL);//启动GUI功能加载进程
+	GUIMENID=SYS_CallHEAP (2048);//分配GUI内存
+	PHardDrawFUN=SYS_CallMem (sizeof (HardDraw),GUIMENID);//
+	HardInformation=SYS_CallMem (sizeof (HardInformationFormat),GUIMENID);//
+	GUI_MESS_MessageInit ();//消息初始化
+	xTaskCreate(GUI_CORE_WaitFunction,"test",50,NULL,1,NULL);//启动GUI功能加载进程
 }
-void GUI ()
+void GUI_CORE ()
 {
-
 	while (1)
 	{
-		GUI_Refresh (WDList);
-		PHardDrawFUN->DrawRange (20,20,60,60,0x6789);
+		GUI_MESS_Handle_A_Message ();
 	}
 }
-/*返回一个被初始化的窗口链表节点*/
-WDListFormat* GUI_GetInitedWDlistNode ()
-{
-	WDListFormat* PWDListNode;
-	PWDListNode=SYS_CallMem (sizeof (WDListFormat),GUI_MENID);//
-	PWDListNode->PFrontWD=NULL;
-	PWDListNode->PNextWD=NULL;
-	PWDListNode->ID=NULL;
-	PWDListNode->Width=NULL;
-	PWDListNode->Length=NULL;
-	PWDListNode->XPosition=NULL;
-	PWDListNode->YPosition=NULL;
-	return PWDListNode;
-}
-/*注册一个窗口*/
-WDID GUI_CreatWD(WDFormat WD)
-{
-	WDListFormat * TEMP,* NewNode;
-	uint8_t id=1;
-	
-	if (WDList) //链表已经被创建
-	{
-		for (TEMP=WDList;TEMP->ID==id++ || TEMP->PNextWD;TEMP=TEMP->PNextWD);//找到链表尾部或ID不连续的节点
-		if (TEMP->ID==id) TEMP=TEMP->PFrontWD;//如果是链表不连续的地方就把指针指向前一个节点
-		NewNode=GUI_GetInitedWDlistNode();//新申请一个节点
-		if (TEMP->PNextWD)//节点后不为空
-		{
-			NewNode->ID=id;
-			NewNode->PNextWD=TEMP->PNextWD;//新节点后指针指向后节点 P><N | P><N<NEW
-			NewNode->PNextWD->PFrontWD=NewNode;//后节点前指针指向新节点 P><N<NEW | P>N><NEW
-			NewNode->PFrontWD=TEMP;//新节点前指针指向前节点 P>N><NEW | P>N><NEW>P
-			NewNode->PFrontWD->PNextWD=NewNode;//前节点后指针指向新节点 P>N><NEW>P | N><NEW><P
-			TEMP=NewNode;
-		}
-		else//节点后为空
-		{
-			NewNode->ID=id;
-			NewNode->PFrontWD=TEMP;
-			TEMP->PNextWD=NewNode;
-		}
-	}
-	else //链表没被创建
-	{	
-		TEMP=GUI_GetInitedWDlistNode();
-		TEMP->ID=1;
-		WDList=TEMP;
-	}
-	TEMP->Width=WD.Width;
-	TEMP->Length=WD.Length;
-	TEMP->XPosition=WD.XPosition;
-	TEMP->YPosition=WD.YPosition;
-	return id;
-}
-/*消灭一个窗口*/
-void GUI_DestroyWD (WDID ID)
-{
-	
-}
-/*给某个窗口添加一个活动区域*/
-void GUI_AddActiveRegion(WDID ID)
-{
-	
-}
+
 

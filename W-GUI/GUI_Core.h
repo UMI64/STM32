@@ -4,9 +4,7 @@
 #include "GUI.h"
 
 /**/
-void GUI_Init (void);
-WDListFormat* GUI_GetInitedWDlistNode (void);
-WDID GUI_CreatWD(WDFormat WD);
-void GUI (void);
+void GUI_CORE_Init (void);
+void GUI_CORE (void);
 
 #endif

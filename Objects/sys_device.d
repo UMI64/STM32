@@ -41,8 +41,9 @@
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\task.h
 .\objects\sys_device.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h
 .\objects\sys_device.o: .\W-GUI\GUI_Core.h
-.\objects\sys_device.o: .\W-GUI\GUI_Refresh.h
+.\objects\sys_device.o: .\W-GUI\GUI_Window.h
 .\objects\sys_device.o: .\W-GUI\GUI.h
+.\objects\sys_device.o: .\W-GUI\GUI_Message.h
 .\objects\sys_device.o: .\W-GUI\GUI_2DLib.h
 .\objects\sys_device.o: .\TFT_ILI9341\tft_ili9341.h
 .\objects\sys_device.o: .\TFT_ILI9341\tft_ili9341.h

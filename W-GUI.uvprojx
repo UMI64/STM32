@@ -458,16 +458,6 @@
               <FilePath>.\W-GUI\GUI.h</FilePath>
             </File>
             <File>
-              <FileName>GUI_Refresh.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\W-GUI\GUI_Refresh.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUI_Refresh.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\W-GUI\GUI_Refresh.h</FilePath>
-            </File>
-            <File>
               <FileName>GUI_2DLib.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\W-GUI\GUI_2DLib.c</FilePath>
@@ -476,6 +466,26 @@
               <FileName>GUI_2DLib.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\W-GUI\GUI_2DLib.h</FilePath>
+            </File>
+            <File>
+              <FileName>GUI_Message.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\W-GUI\GUI_Message.c</FilePath>
+            </File>
+            <File>
+              <FileName>GUI_Message.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\W-GUI\GUI_Message.h</FilePath>
+            </File>
+            <File>
+              <FileName>GUI_Window.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\W-GUI\GUI_Window.h</FilePath>
+            </File>
+            <File>
+              <FileName>GUI_Window.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\W-GUI\GUI_Window.c</FilePath>
             </File>
           </Files>
         </Group>

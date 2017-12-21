@@ -41,8 +41,9 @@
 .\objects\main.o: .\W-GUI\GUI_Core.h
 .\objects\main.o: .\W-GUI\GUI.h
 .\objects\main.o: .\W-GUI\GUI_Core.h
-.\objects\main.o: .\W-GUI\GUI_Refresh.h
+.\objects\main.o: .\W-GUI\GUI_Window.h
 .\objects\main.o: .\W-GUI\GUI.h
+.\objects\main.o: .\W-GUI\GUI_Message.h
 .\objects\main.o: .\W-GUI\GUI_2DLib.h
 .\objects\main.o: .\APP\stable\stable.h
 .\objects\main.o: .\APP\stable\stable.h

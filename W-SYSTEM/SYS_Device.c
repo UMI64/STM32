@@ -13,14 +13,14 @@ DriverInfoData* AddToDriverTree()
 	if (_PDriverTree) 
 	{//建立下一个节点
 		for (;_PDriverTree->PNext;_PDriverTree=_PDriverTree->PNext);
-		_PDriverTree->PNext=SYS_CallMem (sizeof (DriverTreeData),SYS_MENID);
+		_PDriverTree->PNext=SYS_CallMem (sizeof (DriverTreeData),NULL);
 		_PDriverTree->PNext->PFront=_PDriverTree;
 		_PDriverTree=_PDriverTree->PNext;
 		_PDriverTree->PNext=NULL;
 	}
 	else
 	{		
-		PDriverTree=SYS_CallMem (sizeof (DriverTreeData),SYS_MENID);
+		PDriverTree=SYS_CallMem (sizeof (DriverTreeData),NULL);
 		_PDriverTree=PDriverTree;
 	}
 	return &_PDriverTree->DriverInfo;
