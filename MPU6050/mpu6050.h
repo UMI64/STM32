@@ -117,12 +117,18 @@
 #define MPU6050_RA_FIFO_COUNTL      0x73
 #define MPU6050_RA_FIFO_R_W         0x74
 #define MPU6050_RA_WHO_AM_I         0x75
-
+/****/
+#define MPU6050_RA_TEMP 1
+#define MPU6050_RA_GYRO 2
+#define MPU6050_RA_ACCEL 3
+#define MPU6050_RA_ACCEL_GYRO 4
+#define MPU6050_RA_ACCEL_GYRO_TEMP 5
+/****/
 //#define 1101000
 /*内部调用函数*/
-void MPU_6050_INIT (void);
-void Get_ACCEL (float* ACCEL);
-void Get_GYRO (float* GYRO);
+//uint8_t MPU_6050_INIT (I2CPORT PORT);
+//void Get_ACCEL (I2CPORT PORT,float* ACCEL);
+//void Get_GYRO (I2CPORT PORT,float* GYRO);
 /*系统调用函数*/
-void MPU_6050_LoadInfo (DriverInfoData* PDriverInfo);
+void MPU_6050_REG (void);
 #endif

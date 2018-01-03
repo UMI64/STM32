@@ -33,12 +33,12 @@ uc8 GUI_CORE_LoadFunction ()
 void GUI_CORE_WaitFunction ()
 {
 	while (GUI_CORE_LoadFunction ()==0);
-	xTaskCreate(GUI_CORE,"test",50,NULL,1,NULL);//启动GUI核心进程
+	xTaskCreate(GUI_CORE,"test",100,NULL,1,NULL);//启动GUI核心进程
 	vTaskDelete(NULL);
 }
 void GUI_CORE_Init ()
 {
-	GUIMENID=SYS_CallHEAP (2048);//分配GUI内存
+	GUIMENID=SYS_CallHEAP (7096);//分配GUI内存
 	PHardDrawFUN=SYS_CallMem (sizeof (HardDraw),GUIMENID);//
 	HardInformation=SYS_CallMem (sizeof (HardInformationFormat),GUIMENID);//
 	GUI_MESS_MessageInit ();//消息初始化
@@ -48,6 +48,9 @@ void GUI_CORE ()
 {
 	while (1)
 	{
+		int i=0;
+		int *u=&i;
+		*u=uxTaskGetStackHighWaterMark(NULL);
 		GUI_MESS_Handle_A_Message ();
 	}
 }

@@ -1,7 +1,6 @@
 #include "SYS_Device.h"
 /*Driver*/
 #include "tft_ili9341.h"
-#include "mpu6050.h"
 #include "BrushlessMotor.h"
 
 DriverTreeData* PDriverTree=NULL, * PDriverPassTree=NULL;
@@ -29,7 +28,6 @@ void SYS_AddtoDriverTree()
 {
 	/*加入驱动加载函数***************************************/
 	TFT_ILI9341_LoadInfo (AddToDriverTree());
-	MPU_6050_LoadInfo (AddToDriverTree());
 	BrushlessMotor_LoadInfo (AddToDriverTree());
 }
 void SYS_DeleteDriverfromPDriverPassTree (DriverTreeData * P)
@@ -134,6 +132,9 @@ void SYS_DriverManage ()
 				}
 			}
 		}
+		int i;
+		int *q=&i;
+		*q=uxTaskGetStackHighWaterMark(NULL);
 		vTaskDelay (500);
 	}
 }
@@ -141,56 +142,81 @@ void SYS_DriverInit()
 {
 	SYS_AddtoDriverTree();
 	SYS_AddtoDriverPassTree();
-	xTaskCreate(SYS_DriverManage,"Manage",40,NULL,1,NULL);
+	xTaskCreate(SYS_DriverManage,"Manage",30,NULL,1,NULL);
 }
 
 
+/***********************/
 
 
 
 
+DeviceTreeHeadFormate * DeviceTree=NULL;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//DriverTreeData* AddDriverInfo (DriverTreeData* PDriverTree)
-//{
-//	DriverTreeData* PTEMP;
-//	while ((*PDriverTree).PDriverInfo != NULL)
-//	{
-//		if ((*PDriverTree).PNext==NULL) 
-//		{
-//			(*PDriverTree).PNext=SYS_CallMem(sizeof (DriverTreeData),SYS_MENID);
-//			PTEMP=PDriverTree;
-//			PDriverTree=(*PDriverTree).PNext;
-//			(*PDriverTree).PFront=PTEMP;
-//			
-//		}
-//		else
-//		{
-//			PDriverTree=(*PDriverTree).PNext;
-//		}
-//	}
-//	return PDriverTree;
-//}
-//void SYS_Devicd_DriverLoad ()
-//{
-//	/*添加驱动*/
-//	SYS_ili9341_Load (AddDriverInfo (&DriverTree));
-//}
-//void DeviceFound ()
-//{
-//	
-//}
+DeviceTreeHeadFormate * SYS_DEV_FindNULLTreeHead ()
+{
+	DeviceTreeHeadFormate * TEMP;
+	if (DeviceTree==NULL) 
+	{
+		DeviceTree=SYS_CallMem (sizeof (DeviceTreeHeadFormate),NULL);
+		DeviceTree->DeviceName=NULL;
+		DeviceTree->PDeviceLine=NULL;
+		DeviceTree->PNextHead=NULL;
+		return DeviceTree;
+	}
+	else
+	{
+		for (TEMP=DeviceTree;TEMP->PNextHead;TEMP=TEMP->PNextHead);
+		TEMP->PNextHead=SYS_CallMem (sizeof (DeviceTreeHeadFormate),NULL);
+		TEMP=TEMP->PNextHead;
+		TEMP->DeviceName=NULL;
+		TEMP->PDeviceLine=NULL;
+		TEMP->PNextHead=NULL;
+		return TEMP;
+	}
+}
+void SYS_DEV_ChangeState (DEV_HANDLE * Handle,DEV_State State)
+{
+	DeviceLineFormate * PDevice;
+	PDevice=Handle->DevicePointer;
+	PDevice->STATE=State;
+}
+/*打开一个设备*/
+DEV_HANDLE * SYS_DEV_OPEN (char * DeviceName)
+{
+	DeviceLineFormate * LineTEMP;
+	DeviceTreeHeadFormate * HeadTEMP;
+	for (HeadTEMP=DeviceTree;HeadTEMP;HeadTEMP=HeadTEMP->PNextHead)//遍历设备的头
+	{
+		if (*HeadTEMP->DeviceName==*DeviceName)//判断此头是不是要找的头
+		{
+			for (LineTEMP=HeadTEMP->PDeviceLine;LineTEMP;LineTEMP=LineTEMP->PNextDevice)//遍历设备
+			{
+				if (LineTEMP->STATE==DEV_CLOSE)//此设备关闭中
+				{
+					if (LineTEMP->Handle->drv_DEV_OPEN()==DEV_SUCCESS)//使用驱动的打开设备函数
+					{
+						LineTEMP->STATE=DEV_OPEN;//设置设备为打开
+						return LineTEMP->Handle;//成功打开则返回设备句柄
+					}
+				}
+				if (LineTEMP->PNextDevice==NULL) return NULL;
+			}
+		}
+		if (HeadTEMP->PNextHead==NULL) return NULL;
+	}
+	return NULL;//没找到头
+}
+/*关闭一个设备*/
+DEV_State SYS_DEV_CLOSE (DEV_HANDLE * Handle)
+{
+	DEV_State State;
+	State=Handle->drv_DEV_CLOSE ();//使用关闭设备函数
+	if (State==SUCCESS) SYS_DEV_ChangeState(Handle->DevicePointer,DEV_CLOSE);//设置设备为关闭
+	return State;
+}
+/*控制驱动*/
+DEV_State SYS_DEV_CONTROL (DEV_HANDLE * Handle,uint16_t CMD,void * Buffer,uint32_t Buffersize)
+{
+	return Handle->drv_DEV_CONTROL(Handle,CMD,Buffer,Buffersize);//使用设备控制函数
+}

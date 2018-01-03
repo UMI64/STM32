@@ -1,6 +1,6 @@
 --cpu Cortex-M3
-".\objects\main.o"
 ".\objects\stable.o"
+".\objects\main.o"
 ".\objects\tft_ili9341.o"
 ".\objects\gui_core.o"
 ".\objects\gui_2dlib.o"
@@ -10,8 +10,10 @@
 ".\objects\sys_device.o"
 ".\objects\sys_memory.o"
 ".\objects\sys_i2c.o"
+".\objects\sys_driver.o"
 ".\objects\mpu6050.o"
 ".\objects\brushlessmotor.o"
+".\objects\ahrs.o"
 ".\objects\clib_arm.o"
 ".\objects\cmsis_os2.o"
 ".\objects\misc.o"

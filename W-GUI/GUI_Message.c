@@ -1,6 +1,7 @@
 #include "GUI_Message.h"
 #include "GUI_MESSdef.h"
 MESSListFormat * MessageBox;
+uint16_t MessageNum=0;
 void GUI_MESS_MessageInit ()
 {
 	MessageBox=NULL;
@@ -8,16 +9,22 @@ void GUI_MESS_MessageInit ()
 /*添加一个消息*/
 MESSListFormat * GUI_MESS_GetInitedMESSNode ()
 {
+	uint16_t size=0;
 	MESSListFormat * TEMP;
+	size=SYS_HeapFreeSize (1);
 	TEMP=SYS_CallMem (sizeof (MESSListFormat),GUIMENID);
+	if (TEMP==NULL)
+		while (1);
 	TEMP->Data=NULL;
 	TEMP->fData=NULL;
 	TEMP->PNext=NULL;
 	return TEMP;
 }
-void GUI_MESS_ADD_A_Message (uint16_t Data,float fData)
+uint8_t GUI_MESS_ADD_A_Message (uint16_t Data,float fData)
 {
 	MESSListFormat * TEMP;
+	if (MessageNum>=MAXMESS) 
+		return 0;
 	if (MessageBox==NULL)//消息盒子为空
 	{
 		MessageBox=GUI_MESS_GetInitedMESSNode ();
@@ -31,6 +38,7 @@ void GUI_MESS_ADD_A_Message (uint16_t Data,float fData)
 	}
 	TEMP->Data=Data;
 	TEMP->fData=fData;
+	return 1;
 }
 float GUI_MESS_TakeOut_A_FloatData ()
 {	
@@ -64,6 +72,7 @@ void GUI_MESS_Handle_A_Message ()
 	{
 		case CLEAN: 			GUI_2DLib_MESS_Clear ();				break;
 		case DRAW_POINT: 	GUI_2DLib_MESS_DrawPoint ();		break;
+		case DRAW_LINE:   GUI_2DLib_MESS_DrawLine (); 		break;
 	}
 	xTaskResumeAll ();
 }

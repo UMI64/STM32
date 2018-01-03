@@ -31,13 +31,15 @@
 .\objects\mpu6050.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS.h
 .\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mpu6050.o: .\W-SYSTEM\SYS_Config.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_CORE.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_CORE.h
-.\objects\mpu6050.o: .\W-SYSTEM\SYS_Device.h
-.\objects\mpu6050.o: .\W-SYSTEM\SYS_Device.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\mpu6050.o: .\W-SYSTEM\SYS_Device.h
+.\objects\mpu6050.o: .\W-SYSTEM\SYS_Driver.h
+.\objects\mpu6050.o: .\MPU6050\mpu6050.h
 .\objects\mpu6050.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\mpu6050.o: .\W-GUI\GUI_Core.h
 .\objects\mpu6050.o: .\W-GUI\GUI.h
@@ -46,4 +48,3 @@
 .\objects\mpu6050.o: .\W-GUI\GUI.h
 .\objects\mpu6050.o: .\W-GUI\GUI_Message.h
 .\objects\mpu6050.o: .\W-GUI\GUI_2DLib.h
-.\objects\mpu6050.o: MPU6050\mpu6050.h

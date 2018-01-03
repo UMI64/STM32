@@ -12,6 +12,5 @@
 /*内部调用*/
 void stable (void);
 void Stable_Init (void);
-void IMUupdate(float * ABuff,float * GBuff);
 
 #endif

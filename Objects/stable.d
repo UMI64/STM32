@@ -31,13 +31,16 @@
 .\objects\stable.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include\list.h
 .\objects\stable.o: .\W-SYSTEM\SYS.h
 .\objects\stable.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\stable.o: .\W-SYSTEM\SYS_Config.h
 .\objects\stable.o: .\W-SYSTEM\SYS.h
 .\objects\stable.o: .\W-SYSTEM\SYS_CORE.h
 .\objects\stable.o: .\W-SYSTEM\SYS_CORE.h
-.\objects\stable.o: .\W-SYSTEM\SYS_Device.h
-.\objects\stable.o: .\W-SYSTEM\SYS_Device.h
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
 .\objects\stable.o: .\W-SYSTEM\SYS_Memory.h
+.\objects\stable.o: .\W-SYSTEM\SYS_Device.h
+.\objects\stable.o: .\W-SYSTEM\SYS_Driver.h
+.\objects\stable.o: .\MPU6050\mpu6050.h
+.\objects\stable.o: .\MPU6050\mpu6050.h
 .\objects\stable.o: .\W-SYSTEM\SYS_I2C.h
 .\objects\stable.o: .\W-GUI\GUI_Core.h
 .\objects\stable.o: .\W-GUI\GUI.h
@@ -47,4 +50,5 @@
 .\objects\stable.o: .\W-GUI\GUI_Message.h
 .\objects\stable.o: .\W-GUI\GUI_2DLib.h
 .\objects\stable.o: APP\stable\stable.h
+.\objects\stable.o: .\MathLib\ahrs.h
 .\objects\stable.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

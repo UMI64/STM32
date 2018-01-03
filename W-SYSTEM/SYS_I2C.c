@@ -5,7 +5,7 @@ void MYI2C_Init (I2CPORT PORT)
 {
 	GPIO_InitTypeDef GPIO_InitData;
 	GPIO_InitData.GPIO_Pin = PORT.scl | PORT.sda;
-	GPIO_InitData.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitData.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_InitData.GPIO_Mode = GPIO_Mode_Out_OD;
 	
 		switch ((uint32_t) PORT.GPIOx)

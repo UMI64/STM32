@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\TFT_ILI9341;.\W-GUI;.\W-SYSTEM;.\MPU6050;.\APP\stable;.\BrushlessMotor</IncludePath>
+              <IncludePath>.\TFT_ILI9341;.\W-GUI;.\W-SYSTEM;.\MPU6050;.\APP\stable;.\BrushlessMotor;.\MathLib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -413,14 +413,14 @@
           <GroupName>APP</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\APP\main.c</FilePath>
-            </File>
-            <File>
               <FileName>stable.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\stable\stable.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -532,6 +532,21 @@
               <FileType>1</FileType>
               <FilePath>.\W-SYSTEM\SYS_I2C.c</FilePath>
             </File>
+            <File>
+              <FileName>SYS_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\W-SYSTEM\SYS_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>SYS_Driver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\W-SYSTEM\SYS_Driver.h</FilePath>
+            </File>
+            <File>
+              <FileName>SYS_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\W-SYSTEM\SYS_Config.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -551,6 +566,21 @@
               <FileName>BrushlessMotor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BrushlessMotor\BrushlessMotor.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MathLib</GroupName>
+          <Files>
+            <File>
+              <FileName>ahrs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MathLib\ahrs.c</FilePath>
+            </File>
+            <File>
+              <FileName>ahrs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MathLib\ahrs.h</FilePath>
             </File>
           </Files>
         </Group>
