@@ -10,7 +10,6 @@
 #define DA 360
 #define xiao 0
 
-static BrushlessMotorData BrushlessMotordata;
 static uint16_t freetime=10,change_time=65535;
 static float sinlist[SINRANG],pi;
 static uint8_t fb;
@@ -177,16 +176,4 @@ void BrushlessMotor_Init ()
 	Time1_Init ();
 	BrushlessMotor_SVPWM_Init();
 	TIM_Cmd(TIM1,ENABLE);/*使能计数*/
-}
-TESTPASS BrushlessMotor_TEST ()
-{
-	return PASS;
-}
-void BrushlessMotor_LoadInfo (DriverInfoData* PDriverInfo)
-{
-	BrushlessMotordata.TurnPower=BrushlessMotor_Turn;
-	PDriverInfo->Init=BrushlessMotor_Init;
-	PDriverInfo->Test=BrushlessMotor_TEST;
-	PDriverInfo->PInfo=&BrushlessMotordata;
-	PDriverInfo->DriverID=51;
 }

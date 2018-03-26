@@ -5,7 +5,7 @@
 #include <FreeRTOS.h>
 #include <task.h>
 #include "SYS.h"
-#include "mpu6050.h"
+#include "math.h"
 
 #define MPU6050_RA_XG_OFFS_TC       0x00 
 #define MPU6050_RA_YG_OFFS_TC       0x01 
@@ -131,4 +131,11 @@
 //void Get_GYRO (I2CPORT PORT,float* GYRO);
 /*系统调用函数*/
 void MPU_6050_REG (void);
+/**/
+typedef struct mpu6050ERROR_struct
+{
+	uint8_t wDEVaddr_NOask;
+	uint8_t wREGaddr_NOask;
+	uint8_t wDATA_NOask;
+}mpu6050ERROR_struct;
 #endif

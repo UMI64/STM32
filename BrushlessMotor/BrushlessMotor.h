@@ -5,8 +5,6 @@
 #include <FreeRTOS.h>
 #include <task.h>
 #include "SYS.h"
-#include "BrushlessMotor.h"
 
 /*系统调用函数*/
-void BrushlessMotor_LoadInfo (DriverInfoData* PDriverInfo);
 #endif

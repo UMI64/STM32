@@ -1,18 +1,14 @@
 #include "tft_ili9341.h"
 #include <stdlib.h> 
-static LCDData LCDdata;
 void SPI1_Init ()
 {
 	GPIO_InitTypeDef GPIO_SPI1_OUT = {GPIO_Pin_5 | GPIO_Pin_7,GPIO_Speed_50MHz,GPIO_Mode_AF_PP};
 	GPIO_InitTypeDef GPIO_SPI1_IN = {GPIO_Pin_6,GPIO_Speed_50MHz,GPIO_Mode_IPU};
 	GPIO_InitTypeDef GPIO_SPI1_DDX_REST_CS = {GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4,GPIO_Speed_50MHz,GPIO_Mode_Out_PP};
-	SPI_InitTypeDef SPI_SPI1={SPI_Direction_2Lines_FullDuplex,SPI_Mode_Master,SPI_DataSize_16b,SPI_CPOL_Low,SPI_CPHA_1Edge,SPI_NSS_Soft,SPI_BaudRatePrescaler_2,SPI_FirstBit_MSB,7};
-	NVIC_InitTypeDef SPI1_NVIC={SPI1_IRQn,1,1,ENABLE};
-	NVIC_InitTypeDef DMA_SPI1TX_NVIC={DMA1_Channel3_IRQn,1,1,DISABLE};
+	SPI_InitTypeDef SPI_SPI1={SPI_Direction_2Lines_FullDuplex,SPI_Mode_Master,SPI_DataSize_8b,SPI_CPOL_Low,SPI_CPHA_1Edge,SPI_NSS_Soft,SPI_BaudRatePrescaler_2,SPI_FirstBit_MSB,7};
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1,ENABLE);
 	
 	GPIO_Init(GPIOA,&GPIO_SPI1_OUT);
 	GPIO_Init(GPIOA,&GPIO_SPI1_IN);
@@ -21,35 +17,10 @@ void SPI1_Init ()
 	SPI_I2S_ITConfig(SPI1,SPI_I2S_IT_TXE,DISABLE);
 	SPI_I2S_ITConfig(SPI1,SPI_I2S_IT_RXNE,DISABLE);
 	SPI_Cmd(SPI1,ENABLE);
-	SPI_I2S_DMACmd(SPI1,SPI_I2S_DMAReq_Tx,DISABLE);
-	DMA_Cmd(DMA1_Channel3,DISABLE);
-	DMA_ITConfig(DMA1_Channel3,DMA_IT_TC,DISABLE);
-	NVIC_Init(&SPI1_NVIC);
-	NVIC_Init(&DMA_SPI1TX_NVIC);
-}
-void DMA_TX_Init (u32 DataNum,u32 SENDBUFF)
-{
-	DMA_InitTypeDef SPI1_TX_DMA;
-	SPI1_TX_DMA.DMA_PeripheralBaseAddr=(uint32_t) &(SPI1->DR);
-	SPI1_TX_DMA.DMA_MemoryBaseAddr=(uint32_t) SENDBUFF;
-	SPI1_TX_DMA.DMA_DIR=DMA_DIR_PeripheralDST;
-	SPI1_TX_DMA.DMA_BufferSize=DataNum;
-	SPI1_TX_DMA.DMA_PeripheralInc=DMA_PeripheralInc_Disable;
-	SPI1_TX_DMA.DMA_MemoryInc=DMA_MemoryInc_Enable;
-	SPI1_TX_DMA.DMA_PeripheralDataSize=DMA_PeripheralDataSize_HalfWord;
-	SPI1_TX_DMA.DMA_MemoryDataSize=DMA_MemoryDataSize_HalfWord;
-	SPI1_TX_DMA.DMA_Mode=DMA_Mode_Normal;
-	SPI1_TX_DMA.DMA_Priority=DMA_Priority_VeryHigh;
-	SPI1_TX_DMA.DMA_M2M=DMA_M2M_Disable;
-	DMA_DeInit(DMA1_Channel3);
-	DMA_Init(DMA1_Channel3,&SPI1_TX_DMA);
-	DMA_ITConfig(DMA1_Channel3,DMA_IT_TC,ENABLE);
-	SPI_I2S_DMACmd(SPI1,SPI_I2S_DMAReq_Tx,ENABLE);
-	DMA_Cmd(DMA1_Channel3,ENABLE);
 }
 void SPI_BaudRatePrescaler_datasize(u16 BaudRatePrescaler,u16 datasize)
 {
-	u16 temp;
+	uint16_t temp;
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));//可能会在这里卡死
 	temp=BaudRatePrescaler | datasize;
 	SPI1->CR1 &=0Xf7c7;
@@ -57,7 +28,7 @@ void SPI_BaudRatePrescaler_datasize(u16 BaudRatePrescaler,u16 datasize)
 }
 void TFT_ILI9341_ReadData_8bit (u8 *Data)
 {
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
+	GPIOA->BSRR = GPIO_Pin_3;//DATA
 	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_8,SPI_DataSize_8b);//8bit读
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
 	SPI1->DR =0xff;
@@ -66,8 +37,7 @@ void TFT_ILI9341_ReadData_8bit (u8 *Data)
 }
 void TFT_ILI9341_ReadData_16bit (u16 *Data)
 {
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_8,SPI_DataSize_16b);//16bit读
+	GPIOA->BSRR = GPIO_Pin_3;//DATA
 	*Data=SPI1->DR;//清除RXEN标志
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
 	SPI1->DR =0xffff;
@@ -76,37 +46,28 @@ void TFT_ILI9341_ReadData_16bit (u16 *Data)
 }
 void TFT_ILI9341_WriteCmd (u8 Cmd)
 {
-	GPIO_ResetBits(GPIOA,GPIO_Pin_3);//CMD
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
+	GPIOA->BRR = GPIO_Pin_3;//CMD
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
 	SPI1->DR =Cmd;
+	    vTaskDelay(1);           //延时
 }
 void TFT_ILI9341_WriteData_8bit (u8 Data)
 {
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
+	GPIOA->BSRR = GPIO_Pin_3;//DATA
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
 	SPI1->DR =Data;
+	    vTaskDelay(1);           //延时
 }
 void TFT_ILI9341_WriteData_16bit (u16 Data)
 {
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_16b);//16bit写
+	GPIOA->BSRR = GPIO_Pin_3;//DATA
 	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
 	SPI1->DR =Data;
-}
-void TFT_ILI9341_WriteDataContinue (u32 DataNum,u32 SENDBUFF)
-{
-	GPIO_ResetBits(GPIOA,GPIO_Pin_3);//CMD
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
-	while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
-	SPI1->DR = 0x2c;
-	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_16b);//16bit写
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
-	DMA_TX_Init (DataNum,SENDBUFF);
+		    vTaskDelay(1);           //延时
 }
 void TFT_ILI9341_Address_set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
 { 
+	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
 	TFT_ILI9341_WriteCmd(0x2a);
 	TFT_ILI9341_WriteData_8bit(x1>>8);
 	TFT_ILI9341_WriteData_8bit(x1);
@@ -119,24 +80,28 @@ void TFT_ILI9341_Address_set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
 	TFT_ILI9341_WriteData_8bit(y2>>8);
 	TFT_ILI9341_WriteData_8bit(y2);					 						 
 }
-void TFT_ILI9341_SoftRest (void)
+uint8_t TFT_ILI9341_Init ()
 {
-	TFT_ILI9341_WriteCmd(0x01);
-}
-void TFT_ILI9341_HardRest (void)
-{
-	GPIO_SetBits(GPIOA,GPIO_Pin_4);//rest
-	GPIO_ResetBits(GPIOA,GPIO_Pin_4);//rest
-}
-void TFT_ILI9341_Init ()
-{
+	static uint16_t InitColor=0x6666;
+	static point_str point;
+	static rectangle_str clearn;
+	clearn.Xs=0;
+	clearn.Ys=0;
+	clearn.Xe=WIDTH-1;
+	clearn.Ye=LENGTH-1;
+	clearn.RECTANGLE_COLOR=InitColor;
+	point.X=10;
+	point.Y=10;
+	point.POINT_COLOR=0;
 	SPI1_Init ();
+	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
 	GPIO_ResetBits(GPIOA,GPIO_Pin_4);
 	GPIO_SetBits(GPIOA,GPIO_Pin_6);//miso
 	GPIO_ResetBits(GPIOA,GPIO_Pin_2);
-	vTaskDelay(20);//延时20ms
+	vTaskDelay(500);//延时20ms
 	GPIO_SetBits(GPIOA,GPIO_Pin_2);
-	vTaskDelay(20);//延时20ms
+	vTaskDelay(50);//延时20ms
+	
 TFT_ILI9341_WriteCmd(0xCB);
     TFT_ILI9341_WriteData_8bit(0x39);
     TFT_ILI9341_WriteData_8bit(0x2C);
@@ -183,7 +148,7 @@ TFT_ILI9341_WriteCmd(0xC7);    //VCM control2
 TFT_ILI9341_WriteCmd(0x36);    // Memory Access Control 
     TFT_ILI9341_WriteData_8bit(0x08); //	   //48 68竖屏//28 E8 横屏
 
-TFT_ILI9341_WriteCmd(0x3A);    
+TFT_ILI9341_WriteCmd(0x3A);   
     TFT_ILI9341_WriteData_8bit(0x55); 
 
 TFT_ILI9341_WriteCmd(0xB1);    
@@ -246,85 +211,60 @@ TFT_ILI9341_WriteCmd(0x2B);
     TFT_ILI9341_WriteData_8bit(0x00);
     TFT_ILI9341_WriteData_8bit(0x01);
     TFT_ILI9341_WriteData_8bit(0x3F);
-	
+		
 TFT_ILI9341_WriteCmd(0x11);    //退出睡眠
+
 
     vTaskDelay(120);           //延时120ms
 			
 TFT_ILI9341_WriteCmd(0x29);    //开显示
 	
-		Screen_Clear(0,0,WIDTH-1,LENGTH-1,0xffff);
-}
-
-
-
-/*系统接口函数*/
-/*驱动加载函数和硬件测试函数*/
-TESTPASS TFT_ILI9341_TEST()
-{
-	uint16_t TESTCOLOR,testcolor,tempcolor;
-	static uint8_t x=0;
-	vTaskSuspendAll ();
+		Screen_Drawrectangle(&clearn);
+		
+		Screen_ReadPointColor (&point);//检测是否初始化成功
 	
-	if (x) x=0;
-	else x=1;
-	TESTCOLOR=x | 0xfcfc;
-	
-	xTaskResumeAll ();
-	Screen_ReadColor (10,10,&tempcolor);
-	Screen_DrawPoint(10,10,TESTCOLOR);
-	Screen_ReadColor (10,10,&testcolor);
-	Screen_DrawPoint(10,10,tempcolor);
-	if (testcolor==TESTCOLOR) return PASS;
-	else return NOTPASS;
+	if (point.POINT_COLOR==InitColor)	return 0;
+	else return 1;
 }
-void TFT_ILI9341_LoadInfo (DriverInfoData* PDriverInfo)
+void TFT_ILI9341_SoftRest (void)
 {
-	LCDdata.DrawPoint=Screen_DrawPoint;
-	LCDdata.DrawRange=Screen_Clear;
-	LCDdata.ReadColor=Screen_ReadColor;
-	LCDdata.width=240;
-	LCDdata.length=320;
-	LCDdata.color_type=16;
-	LCDdata.id=0;
-	PDriverInfo->Init=TFT_ILI9341_Init;
-	PDriverInfo->Test=TFT_ILI9341_TEST;
-	PDriverInfo->PInfo=&LCDdata;
-	PDriverInfo->DriverID=22;
+	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_8b);//8bit写
+	TFT_ILI9341_WriteCmd(0x01);
 }
-/*基本绘图函数*/
-void Screen_Clear     (u16 x1,u16 y1,u16 x2,u16 y2,u16 Color)
+void TFT_ILI9341_HardRest (void)
+{
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);//rest
+	GPIO_ResetBits(GPIOA,GPIO_Pin_4);//rest
+}
+void Screen_DrawPoint(point_str *point)
+{
+	TFT_ILI9341_Address_set(point->X,point->Y,point->X,point->Y);//设置光标位置
+	TFT_ILI9341_WriteCmd(0x2C);//w
+	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_16b);//16bit写
+	TFT_ILI9341_WriteData_16bit (point->POINT_COLOR);
+}
+void Screen_Drawrectangle (rectangle_str *rectangle)
 {
 	unsigned int i,j;
-	vTaskSuspendAll ();
-	TFT_ILI9341_Address_set(x1,y1,x2,y2);
+	TFT_ILI9341_Address_set(rectangle->Xs,rectangle->Ys,rectangle->Xe,rectangle->Ye);
 	TFT_ILI9341_WriteCmd(0x2C);//w
 	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_2,SPI_DataSize_16b);
-	GPIO_SetBits(GPIOA,GPIO_Pin_3);//DATA
-	for(i=y1;i<=y2;i++)
+	GPIOA->BSRR = GPIO_Pin_3;//DATA
+	for(i=rectangle->Ys;i<=rectangle->Ye;++i)
 	{
-		for (j=x1;j<=x2;j++)
+		for (j=rectangle->Xs;j<=rectangle->Xe;++j)
 		{
 			while (!(SPI1->SR & SPI_I2S_FLAG_TXE) | (SPI1->SR & SPI_I2S_FLAG_BSY));
-				SPI1->DR =Color;			 
+				SPI1->DR =rectangle->RECTANGLE_COLOR;			 
 		}
 	}
-	xTaskResumeAll ();
 }
-void Screen_DrawPoint(u16 x,u16 y,u16 POINT_COLOR)
-{
-	vTaskSuspendAll ();
-	TFT_ILI9341_Address_set(x,y,x,y);//设置光标位置
-	TFT_ILI9341_WriteCmd(0x2C);//w
-	TFT_ILI9341_WriteData_16bit (POINT_COLOR);
-	xTaskResumeAll ();
-}
-void Screen_ReadColor (u16 x,u16 y,uint16_t *Color)
+void Screen_ReadPointColor (point_str *point)
 {
 	uint16_t r=0,g=0,b=0,trans_1=0,trans_2=0;
-	vTaskSuspendAll ();
-	TFT_ILI9341_Address_set(x,y,x,y);
+	TFT_ILI9341_Address_set(point->X,point->Y,point->X,point->Y);
 	TFT_ILI9341_WriteCmd (0x2e);//r
+	SPI_BaudRatePrescaler_datasize(SPI_BaudRatePrescaler_8,SPI_DataSize_16b);//16bit读
 	TFT_ILI9341_ReadData_16bit (&trans_1);
 	TFT_ILI9341_ReadData_16bit (&trans_2);
 	
@@ -334,6 +274,62 @@ void Screen_ReadColor (u16 x,u16 y,uint16_t *Color)
 	r=(trans_1<<8)&0xf800;
 	g=(trans_2>>5) & 0x07e0;
 	b=(trans_2>>3) & 0x001f;
-	*Color= r | g | b;
-	xTaskResumeAll ();
+	point->POINT_COLOR= r | g | b;
+}
+DEV_State TFT_ILI9341_OPEN ()
+{
+	if (TFT_ILI9341_Init ()) return DEV_FAIL;
+	else return DEV_SUCCESS;
+}
+DEV_State TFT_ILI9341_CLOSE ()
+{
+	return DEV_SUCCESS;
+}
+DEV_State TFT_ILI9341_CONTROL (DEV_HANDLE * Handle,uint16_t CMD,void * Buffer,uint32_t Buffersize)
+{
+	DEV_State state;
+	state=SYS_DEV_GetState (Handle);
+	if (state==DEV_FAIL || state==DEV_BUSY || state==DEV_CLOSE) return state;
+	SYS_DEV_ChangeState (Handle,DEV_BUSY);
+	switch (CMD)
+	{
+		case ILI9341_DRAW_POINT: 					Screen_DrawPoint((point_str *)Buffer)			;break;
+		case ILI9341_DRAW_RECTANGLE:  		Screen_Drawrectangle ((rectangle_str *)Buffer)				;break;
+		case ILI9341_READ_POINT: 					Screen_ReadPointColor ((point_str *)Buffer)	;break;
+	}
+	SYS_DEV_ChangeState (Handle,DEV_OPEN);
+	return DEV_SUCCESS;
+}
+DEV_HANDLE * TFT_ILI9341_REG_DEV (DeviceNeedFormate * DriverNeed)
+{
+	DeviceREGFormate DeviceREG;
+	DeviceREG.DeviceID=1;
+	DeviceREG.DeviceType="screen";
+	DeviceREG.FUN.drv_DEV_CLOSE=TFT_ILI9341_CLOSE;
+	DeviceREG.FUN.drv_DEV_OPEN=TFT_ILI9341_OPEN;
+	DeviceREG.FUN.drv_DEV_CONTROL=TFT_ILI9341_CONTROL;
+	DeviceREG.Needs=DriverNeed;
+	return SYS_DRI_RegisterDevice (DeviceREG);
+}
+void TFT_ILI9341_REG ()
+{
+	DriverREGFormate DriverREG;
+	static DeviceNeedFormate GPIOPort,SDAGPIO,SCLGPIO;
+	
+	GPIOPort.NeedName="GPIOPort";
+	GPIOPort.Data=NULL;
+	GPIOPort.NextNeed=&SDAGPIO;
+	
+	GPIOPort.NeedName="SDAGPIO";
+	GPIOPort.Data=NULL;
+	GPIOPort.NextNeed=&SCLGPIO;
+	
+	GPIOPort.NeedName="SCLGPIO";
+	GPIOPort.Data=NULL;
+	GPIOPort.NextNeed=NULL;
+	
+	DriverREG.DriverName="ili9341";
+	DriverREG.Need=&GPIOPort;
+	DriverREG.drv_RegisterDevice=( * TFT_ILI9341_REG_DEV);
+	SYS_DRI_RegisterDriver (DriverREG);
 }

@@ -56,9 +56,9 @@ ARM Macro Assembler    Page 1
    32 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
    33 00000000         ; </h>
    34 00000000         
-   35 00000000 00002080 
+   35 00000000 00000400 
                        Stack_Size
-                               EQU              0x00002080
+                               EQU              0x00000400
    36 00000000         
    37 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
@@ -70,29 +70,29 @@ ARM Macro Assembler    Page 2
 
 
                                SPACE            Stack_Size
-   39 00002080         __initial_sp
-   40 00002080         
-   41 00002080         ; <h> Heap Configuration
-   42 00002080         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   43 00002080         ; </h>
-   44 00002080         
-   45 00002080 00000400 
+   39 00000400         __initial_sp
+   40 00000400         
+   41 00000400         ; <h> Heap Configuration
+   42 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   43 00000400         ; </h>
+   44 00000400         
+   45 00000400 00000200 
                        Heap_Size
-                               EQU              0x00000400
-   46 00002080         
-   47 00002080                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+                               EQU              0x00000200
+   46 00000400         
+   47 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    48 00000000         __heap_base
    49 00000000         Heap_Mem
                                SPACE            Heap_Size
-   50 00000400         __heap_limit
-   51 00000400         
-   52 00000400                 PRESERVE8
-   53 00000400                 THUMB
-   54 00000400         
-   55 00000400         
-   56 00000400         ; Vector Table Mapped to Address 0 at Reset
-   57 00000400                 AREA             RESET, DATA, READONLY
+   50 00000200         __heap_limit
+   51 00000200         
+   52 00000200                 PRESERVE8
+   53 00000200                 THUMB
+   54 00000200         
+   55 00000200         
+   56 00000200         ; Vector Table Mapped to Address 0 at Reset
+   57 00000200                 AREA             RESET, DATA, READONLY
    58 00000000                 EXPORT           __Vectors
    59 00000000                 EXPORT           __Vectors_End
    60 00000000                 EXPORT           __Vectors_Size
@@ -560,22 +560,21 @@ ARM Macro Assembler    Page 9
               00000000 
               00000000 
               00000000 
-              00002080 
               00000400 
+              00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_hd.d -o.\objects\startup_stm32f10x_hd.
-o -IC:\Users\94942\Documents\GitHub\STM32\RTE -IC:\Users\94942\Documents\GitHub
-\STM32\RTE\Device\STM32F103ZE -IC:\Users\94942\Documents\GitHub\STM32\RTE\RTOS 
--IC:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\CMSIS\RTOS2\FreeRTOS\Include -IC
-:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeRTOS\9.0.0\Source\include -IC:\Keil_v5\ARM\PAC
-K\ARM\CMSIS-FreeRTOS\9.0.0\Source\portable\RVDS\ARM_CM3 -IC:\Keil_v5\ARM\PACK\A
-RM\CMSIS\5.0.1\CMSIS\Include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS2\
-Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include -IC:\Keil
-_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc --predefine="
-__UVISION_VERSION SETA 514" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_H
-D SETA 1" --list=.\listings\startup_stm32f10x_hd.lst RTE\Device\STM32F103ZE\sta
-rtup_stm32f10x_hd.s
+o -I.\RTE\Device\STM32F103ZE -I.\RTE\RTOS -I.\RTE\_Target_1 -IC:\Keil_v5\ARM\PA
+CK\ARM\CMSIS-FreeRTOS\10.0.1\CMSIS\RTOS2\FreeRTOS\Include -IC:\Keil_v5\ARM\PACK
+\ARM\CMSIS-FreeRTOS\10.0.1\Source\include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS-FreeR
+TOS\10.0.1\Source\portable\RVDS\ARM_CM3 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\C
+MSIS\Include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\RTOS2\Include -IC:\Kei
+l_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include -IC:\Keil_v5\ARM\PACK\Kei
+l\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc --predefine="__UVISION_VERSIO
+N SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD SETA 1" --list
+=.\listings\startup_stm32f10x_hd.lst RTE\Device\STM32F103ZE\startup_stm32f10x_h
+d.s
 
 
 
@@ -599,7 +598,7 @@ Symbol: Stack_Mem
       At line 347 in file RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s
       At line 349 in file RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s
 
-__initial_sp 00002080
+__initial_sp 00000400
 
 Symbol: __initial_sp
    Definitions
@@ -639,7 +638,7 @@ Symbol: __heap_base
    Uses
       None
 Comment: __heap_base unused
-__heap_limit 00000400
+__heap_limit 00000200
 
 Symbol: __heap_limit
    Definitions
@@ -1414,7 +1413,7 @@ Comment: __user_initial_stackheap used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00000400
+Heap_Size 00000200
 
 Symbol: Heap_Size
    Definitions
@@ -1423,7 +1422,7 @@ Symbol: Heap_Size
       At line 49 in file RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s
       At line 348 in file RTE\Device\STM32F103ZE\startup_stm32f10x_hd.s
 
-Stack_Size 00002080
+Stack_Size 00000400
 
 Symbol: Stack_Size
    Definitions
